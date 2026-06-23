@@ -8,7 +8,7 @@ const lineVariants = {
   hidden: { y: "115%" },
   visible: (i: number) => ({
     y: "0%",
-    transition: { duration: 1, delay: 0.35 + i * 0.1, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 1, delay: 0.35 + i * 0.1, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
   }),
 };
 

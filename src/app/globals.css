@@ -1,26 +1,225 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ------------------------------------------------------------------ *
+ *  The Draftory — design tokens
+ *  Editorial / warm-neutral system inspired by zypsy.com
+ * ------------------------------------------------------------------ */
+
+@theme {
+  /* Palette */
+  --color-paper: #f3f0e8;        /* warm cream base            */
+  --color-paper-deep: #ebe7dc;   /* slightly deeper cream      */
+  --color-ink: #16140f;          /* near-black warm ink        */
+  --color-ink-soft: #6b665b;     /* muted warm grey (body)     */
+  --color-ink-faint: #9c968a;    /* hairline labels            */
+  --color-noir: #100f0d;         /* dark sections              */
+  --color-noir-soft: #1b1a17;    /* dark card on noir          */
+  --color-accent: #e9b53b;       /* signal amber               */
+  --color-accent-deep: #d39f24;
+  --color-line: rgba(22, 20, 15, 0.12);
+  --color-line-strong: rgba(22, 20, 15, 0.22);
+  --color-line-inv: rgba(243, 240, 232, 0.16);
+
+  /* Type */
+  --font-sans: var(--font-aspekta), -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Arial, sans-serif;
+
+  /* Easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ------------------------------------------------------------------ */
+
+* {
+  border-color: var(--color-line);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-noir);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv01";
+  overflow-x: hidden;
+}
+
+/* Lock scroll while the preloader curtain is up. */
+html.is-loading,
+html.is-loading body {
+  overflow: hidden;
+}
+
+/* Single shared background layer behind all content. Its colour is set by
+ * ScrollTheme from the active section; the transition makes the whole page
+ * cross-fade light↔dark in place as you scroll across a section boundary. */
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--color-noir);
+  transition: background-color 0.55s ease;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+/* Fluid display type — zypsy-measured scale (H1=72px, H2s=60/48/30px at 1084px vw) */
+.display {
+  font-weight: 350;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+}
+
+.display-xl {
+  font-size: clamp(2.75rem, 9.5vw, 8rem);
+}
+
+.display-lg {
+  font-size: clamp(2.2rem, 6.2vw, 4.6rem);
+  line-height: 1.04;
+}
+
+.display-md {
+  font-size: clamp(1.75rem, 4.4vw, 3rem);
+  line-height: 1.06;
+}
+
+.display-sm {
+  font-size: clamp(1.25rem, 2.8vw, 1.875rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+/* Subhead — 24px lede step */
+.subhead {
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+
+/* Body — 18px */
+.body-text {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/* UI — nav, tags, buttons — 15px */
+.ui-text {
+  font-size: 0.9375rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+/* Caption — timestamps, metadata — ~13.5px */
+.caption {
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+
+/* Eyebrow — 10.5px all-caps label */
+.eyebrow {
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+}
+
+/* Shared section gutter */
+.shell {
+  width: 100%;
+  max-width: 96rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 4.5rem);
+}
+
+/* Underline link with animated rule (zypsy style) */
+.rule-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-bottom: 0.35rem;
+  /* never spill past a constrained parent (e.g. footer grid columns);
+     long tokens like an email address wrap instead of overflowing. */
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.rule-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform-origin: right;
+  transform: scaleX(1);
+  transition: transform 0.55s var(--ease-out-expo);
+}
+.rule-link:hover::after {
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+/* Floating-label fields (contact form, zypsy style) — the label rests on
+ * the input line, then floats up + shrinks on focus or once filled.        */
+.field {
+  position: relative;
+}
+.field > input,
+.field > textarea {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 1.75rem 0 0.625rem;
+  font-size: 1.125rem;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.3s var(--ease-out-expo);
+}
+.field > textarea {
+  resize: none;
+}
+.field > input::placeholder,
+.field > textarea::placeholder {
+  color: transparent;
+}
+.field > input:focus,
+.field > textarea:focus {
+  border-bottom-color: var(--color-accent);
+}
+.field > label {
+  position: absolute;
+  left: 0;
+  top: 1.75rem;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+  transform-origin: left;
+  transition: 0.2s ease;
+}
+.field.is-floated > label {
+  top: 0;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

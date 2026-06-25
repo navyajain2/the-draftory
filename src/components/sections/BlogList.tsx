@@ -38,7 +38,7 @@ export default function BlogList({ posts, filters }: Props) {
                 "cursor-pointer rounded-full border px-4 py-1.5 text-sm tracking-[-0.01em] transition-colors duration-300",
                 active === f
                   ? "border-paper bg-paper text-noir"
-                  : "border-line-inv text-paper/70 hover:border-paper/50 hover:text-paper",
+                  : "border-paper/30 text-paper/70 hover:border-paper hover:text-paper",
               )}
             >
               {f}
@@ -81,7 +81,7 @@ export default function BlogList({ posts, filters }: Props) {
               <div className="flex flex-col justify-between py-1 lg:py-2">
                 <div>
                   <div className="flex items-center gap-4">
-                    <span className="rounded-full border border-line-inv px-4 py-1.5 text-sm text-paper/80">
+                    <span className="rounded-full border border-paper/30 px-4 py-1.5 text-sm text-paper/80">
                       {post.tag}
                     </span>
                     <span className="caption text-paper/45">{post.date}</span>

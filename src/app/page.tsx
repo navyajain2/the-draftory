@@ -7,23 +7,31 @@ import Principles from "@/components/sections/Principles";
 // import Process from "@/components/sections/Process"; // temporarily hidden
 import Gallery from "@/components/sections/Gallery";
 import Insights from "@/components/sections/Insights";
+import FAQ from "@/components/sections/FAQ";
 import CTA from "@/components/sections/CTA";
 import Footer from "@/components/sections/Footer";
+import FooterReveal from "@/components/sections/FooterReveal";
 
 export default function Home() {
   return (
-    <main className="relative">
+    <>
+      {/* Nav stays outside the reveal wrapper — a transformed ancestor would
+          break its position: fixed. */}
       <Nav />
-      <Hero />
-      <Manifesto />
-      <Audience />
-      <Stages />
-      <Principles />
-      {/* <Process /> temporarily hidden */}
-      <Insights />
-      <Gallery />
-      <CTA />
-      <Footer />
-    </main>
+      <FooterReveal footer={<Footer />}>
+        <main className="relative">
+          <Hero />
+          <Manifesto />
+          <Audience />
+          <Stages />
+          <Principles />
+          {/* <Process /> temporarily hidden */}
+          <Insights />
+          <FAQ />
+          <Gallery />
+          <CTA />
+        </main>
+      </FooterReveal>
+    </>
   );
 }

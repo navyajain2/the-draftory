@@ -29,33 +29,35 @@ export const hero = {
 export const manifesto = {
   eyebrow: "What we do",
   body: "We're a team of ghostwriters, strategists, and brand thinkers turning founders' raw ideas into the kind of presence that gets noticed, remembered, and trusted.",
+  body2:
+    "From LinkedIn posts and founder blogs to newsletters and Substack essays, we help exceptional people articulate what they already know.",
   highlight:
-    "We bring great writing to\nexceptional founders.\n(A small roster, by design).",
+    "We bring great writing to\nexceptional founders.\n(We work with a few, on purpose).",
 };
 
 export const audience = {
-  title: "This is for founders\nand CXOs who…",
-  body: "We work best with a particular kind of person — builders with something real to say, who simply haven't said it yet.",
+  title: "This is for founders\nwho have more to say.",
+  body: "The ideas are there. The experience is there. What's missing is the time, structure, and words to turn them into writing people actually remember.",
   items: [
     {
       no: "01",
-      tag: "Pre-launch",
-      body: 'Are about to launch something — and their LinkedIn still says "Software Engineer at [old company]."',
+      tag: "About to launch",
+      body: 'Building something new, while your online presence still says "Software Engineer at [old company]."',
     },
     {
       no: "02",
       tag: "Under the radar",
-      body: "Run a company most people haven't heard of yet.",
+      body: "Running a remarkable company that deserves to be better known.",
     },
     {
       no: "03",
       tag: "Untapped expertise",
-      body: "Have a decade of hard-earned lessons that have never made it past a conference stage.",
+      body: "A decade of hard-earned lessons that have never made it past conversations and conference stages.",
     },
     {
       no: "04",
       tag: "Time-starved",
-      body: "Know they should be posting more, but never quite find the time or the words.",
+      body: "You know you should be writing more. LinkedIn, blogs, newsletters, Substack. It just never reaches the top of the list.",
     },
   ],
 };
@@ -66,16 +68,23 @@ export const stages = {
       title: "Early-Stage",
       img: "https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=700&auto=format&fit=crop",
       alt: "Writing on a laptop",
-      body: "Turn your ideas into a winning presence. We'll take you from blank profile to consistent posting, with voice and positioning sprints tailored to you.",
+      body: "Turn your ideas into a distinct voice. We help you shape your thinking into writing people remember, creating a strong foundation for everything that follows.",
     },
     {
       title: "Growth-Stage",
       img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=700&auto=format&fit=crop",
       alt: "Audience growth analytics",
-      body: "Scale smart. We'll help you reimagine your voice and content to stay connected with your growing audience.",
+      body: "As your company grows, your writing should too. We help your ideas evolve alongside your business, ensuring your voice stays as thoughtful as your ambitions.",
     },
   ],
-  note: "Minimum commitment: 3 months — enough time to find your voice and build momentum.",
+  commitment: {
+    heading: "Why a 3-month minimum commitment?",
+    subheading: "Because good ghostwriting takes time.",
+    body: [
+      "The first month is spent understanding your voice. The next few months are where consistency starts paying off and we learn what resonates with your audience.",
+      "Anything shorter usually means stopping just as the work starts getting better.",
+    ],
+  },
 };
 
 export const principles = {
@@ -84,22 +93,22 @@ export const principles = {
     {
       no: "01",
       title: "Direction over deliverables",
-      body: "We focus on your long-term positioning, aligning every post with your goals, instead of just chasing content.",
+      body: "Every piece begins with a simple question: What do you want to be known for? The writing follows from there.",
     },
     {
       no: "02",
       title: "Consistency over bureaucracy",
-      body: "Posting rhythm is vital, and we help founders build a strong publishing cadence for compounding visibility and reach.",
+      body: "A thoughtful voice, repeated over time, will always outlast a single viral post.",
     },
     {
       no: "03",
       title: "Collaboration over transaction",
-      body: "We're about long-term partnerships and finding your voice, over just delivering posts.",
+      body: "Good writing isn't handed off. It's discovered together, through conversations that sharpen ideas before they become words.",
     },
     {
       no: "04",
       title: "Craft over quantity",
-      body: "Writing posts that matter, not just more of them.",
+      body: "Every piece should earn its place. We'd rather publish something memorable than simply publish more.",
     },
   ],
 };
@@ -374,12 +383,12 @@ export const process = {
     {
       no: "01",
       title: "Discovery",
-      body: "Two 2-hour conversations to understand your story, your goals, and how you think. Everything we write traces back to this.",
+      body: "Two long conversations to understand your story, your goals, and how you think. Everything we write traces back to this.",
     },
     {
       no: "02",
-      title: "A short form",
-      body: "Between calls, we send over a short form. It fills in the gaps that don't come up in conversation.",
+      title: "The brief",
+      body: "Between calls, we send over a short questionnaire. It fills in the gaps that don't come up in conversation.",
     },
     {
       no: "03",
@@ -415,7 +424,6 @@ export const gallery = [
 export const cta = {
   kicker: "Get in touch",
   title: "Your ideas,\ndrafted into words\nworth posting.",
-  alt: "We draft your thinking into something worth your name.",
   action: "Get in touch",
   note: "We're taking on 5 founders this quarter.",
 };
@@ -460,17 +468,11 @@ export const contactForm = {
   workType: {
     name: "workType",
     label: "What do you need help with?",
-    options: ["LinkedIn ghostwriting", "Personal brand & positioning", "Long-form essays & newsletter", "Other"],
+    options: ["LinkedIn ghostwriting", "Personal brand & positioning", "Long-form essays & newsletters", "Other"],
   },
   needs: {
     name: "needs",
     label: "Tell us about your content goals in detail",
-  },
-  cms: {
-    name: "cms",
-    label: "What tool do you use for your CMS?",
-    placeholder: "Select a tool",
-    options: ["WordPress", "HubSpot", "Webflow", "Contentful", "Ghost", "Sanity", "We don't use a CMS", "Other"],
   },
   hearAbout: {
     name: "hearAbout",
@@ -495,6 +497,56 @@ export const contactForm = {
     title: "Thanks — we've got it.",
     body: "We read every note personally and will be in touch within a couple of days.",
   },
+};
+
+export const faqs = {
+  title: "Common questions.",
+  items: [
+    {
+      q: "How do you capture a founder's voice without it sounding generic?",
+      a: [
+        "We spend far more time listening than writing. Through conversations, interviews, and an evolving story bank, we learn how you think before we write a single sentence.",
+        "Every piece begins with your ideas, your experiences, and your perspective. Our role is to shape them with clarity, structure, and rhythm while preserving the voice that makes them uniquely yours.",
+        "If we've done our job well, the writing won't sound like us. It'll sound like you on your best day.",
+      ],
+    },
+    {
+      q: "What do you actually write?",
+      a: [
+        "Most partnerships include a mix of LinkedIn posts, founder blogs, newsletters, essays, and long-form thought leadership. The format changes. The thinking stays consistent.",
+      ],
+    },
+    {
+      q: "How does the process work?",
+      a: [
+        "We begin with a series of conversations to understand your ideas, experiences, and ambitions. From there, we build a strategy, create a story bank, draft every piece, refine it with your feedback, and manage the publishing rhythm together.",
+      ],
+    },
+    {
+      q: "How involved do I need to be?",
+      a: [
+        "Less than most founders expect. After the initial discovery phase, most of your involvement comes down to conversations and reviewing drafts. We handle the research, planning, writing, and iteration.",
+      ],
+    },
+    {
+      q: "Who is The Draftory best suited for?",
+      a: [
+        "Founders and executives with real experience, strong opinions, and long-term ambitions. We work best with people who want to build credibility over time, not chase attention for a week.",
+      ],
+    },
+    {
+      q: "What's the difference between The Draftory and a content agency?",
+      a: [
+        "Content agencies are built for volume. We're built for voice. Rather than producing content at scale, we help founders develop a distinctive way of thinking and communicating that compounds over time.",
+      ],
+    },
+    {
+      q: "Do you only work with LinkedIn?",
+      a: [
+        "No. LinkedIn is often where conversations begin, but many of our partnerships extend into founder blogs, newsletters, essays, Substack, website content, and other long-form writing.",
+      ],
+    },
+  ],
 };
 
 export const footer = {

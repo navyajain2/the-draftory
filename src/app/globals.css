@@ -67,8 +67,8 @@ html.is-loading body {
 }
 
 ::selection {
-  background: var(--color-ink);
-  color: var(--color-paper);
+  background: var(--color-accent);
+  color: var(--color-ink);
 }
 
 /* Fluid display type — zypsy-measured scale (H1=72px, H2s=60/48/30px at 1084px vw) */

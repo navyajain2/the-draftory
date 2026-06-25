@@ -11,9 +11,10 @@ export default function Manifesto() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.8fr_2.2fr] lg:gap-16">
           {/* small intro, top-left — appears first */}
           <Reveal>
-            <p className="max-w-sm text-lg leading-relaxed text-paper/65">
-              {manifesto.body}
-            </p>
+            <div className="max-w-sm space-y-4 text-lg leading-relaxed text-paper/65">
+              <p>{manifesto.body}</p>
+              <p>{manifesto.body2}</p>
+            </div>
           </Reveal>
 
           {/* huge statement, right — reveals line-by-line (zypsy line-wipe),

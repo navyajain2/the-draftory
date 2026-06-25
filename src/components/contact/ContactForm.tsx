@@ -248,7 +248,6 @@ export default function ContactForm() {
 
             {/* ── Additional info ────────────────────────────────────── */}
             <SectionHeading>Additional info</SectionHeading>
-            <Select {...f.cms} />
             <Select {...f.hearAbout} />
             <Select {...f.region} />
             <FloatingTextarea name={f.referral.name} label={f.referral.label} />

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 import Wordmark from "@/components/ui/Wordmark";
 import { nav, brand } from "@/lib/content";
 import { cn } from "@/lib/utils";
@@ -75,20 +76,23 @@ export default function Nav() {
   }, [open]);
 
   const fg = open || theme === "dark" ? "text-paper" : "text-ink";
+  // On dark sections accent yellow is readable; on light/amber hero it blends
+  // into the background, so soften hover to a muted ink instead.
+  const hoverCls = theme === "dark" || open ? "hover:text-accent" : "hover:text-ink-soft";
 
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50">
         <div className="shell flex items-start justify-between py-5 md:py-6">
-          <a
-            href="#top"
+          <Link
+            href="/"
             className={cn(
               "transition-colors duration-500 text-[1.875rem]",
               fg,
             )}
           >
             <Wordmark />
-          </a>
+          </Link>
 
           {/* right cluster — expanded list and Menu button crossfade in place */}
           <div className="relative flex flex-col items-end">
@@ -108,7 +112,8 @@ export default function Nav() {
                   href={item.href}
                   tabIndex={scrolled || open ? -1 : 0}
                   className={cn(
-                    "cursor-pointer text-lg leading-tight tracking-[-0.01em] transition-colors duration-300 hover:text-accent",
+                    "cursor-pointer text-lg leading-tight tracking-[-0.01em] transition-colors duration-300",
+                    hoverCls,
                     fg,
                   )}
                 >

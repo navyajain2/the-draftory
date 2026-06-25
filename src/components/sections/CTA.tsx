@@ -24,9 +24,7 @@ export default function CTA() {
           <p className="mt-10 text-base text-ink/60">{cta.note}</p>
         </Reveal>
 
-        <Reveal delay={0.3}>
-          <p className="mt-2 text-sm text-ink/45">{cta.alt}</p>
-        </Reveal>
+
       </div>
     </section>
   );

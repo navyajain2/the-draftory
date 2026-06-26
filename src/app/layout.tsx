@@ -14,7 +14,7 @@ const aspekta = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "Ghostwriting for Founders | The Draftory",
+    default: "Content for Founders | The Draftory",
     template: "%s | The Draftory",
   },
   description:
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   authors: [{ name: "The Draftory", url: "https://thedraftory.com" }],
   creator: "The Draftory",
   openGraph: {
-    title: "Ghostwriting for Founders | The Draftory",
+    title: "Content for Founders | The Draftory",
     description:
       "We turn founders' raw ideas into LinkedIn posts, essays, and newsletters that build trust and get remembered. A small roster, on purpose.",
     type: "website",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ghostwriting for Founders | The Draftory",
+    title: "Content for Founders | The Draftory",
     description:
       "We turn founders' raw ideas into writing that builds trust. LinkedIn, essays, newsletters.",
     creator: "@thedraftory",

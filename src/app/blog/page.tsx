@@ -7,12 +7,12 @@ import Reveal from "@/components/anim/Reveal";
 import BlogList from "@/components/sections/BlogList";
 
 export const metadata: Metadata = {
-  title: "Journal — Founder Ghostwriting, Personal Brand & Thought Leadership",
+  title: "Journal",
   description:
     "Field notes, playbooks, and essays on ghostwriting, founder personal brand, LinkedIn strategy, and building trust through writing. From the team at The Draftory.",
   alternates: { canonical: "https://thedraftory.com/blog" },
   openGraph: {
-    title: "Journal — The Draftory",
+    title: "Journal | The Draftory",
     description:
       "Essays and playbooks on founder ghostwriting, LinkedIn strategy, personal brand, and writing that builds trust.",
     type: "website",

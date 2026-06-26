@@ -186,7 +186,7 @@ export const blog = {
       isoDate: "2025-06-18",
       readingTime: "6 min read",
       title:
-        "Why most founder LinkedIn sounds the same — and how to escape it.",
+        "Why most founder LinkedIn sounds the same, and how to escape it.",
       excerpt:
         "Scroll any founder's feed and you'll meet the same voice: confident, vague, allergic to a real opinion. Here's where the sameness comes from, and the four moves that break it.",
       img: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1600&auto=format&fit=crop",
@@ -825,7 +825,7 @@ export const contactForm = {
   newsletter: "Subscribe for the occasional founder-focused note. No spam.",
   submit: "Send it over",
   success: {
-    title: "Thanks — we've got it.",
+    title: "Thanks, we've got it.",
     body: "We read every note personally and will be in touch within a couple of days.",
   },
 };
@@ -900,7 +900,7 @@ export const footer = {
       heading: "Elsewhere",
       links: [
         { label: "LinkedIn", href: "#" },
-        { label: "X — Twitter", href: "#" },
+        { label: "X / Twitter", href: "#" },
         { label: "Instagram", href: "#" },
         { label: "hello@thedraftory.com", href: "mailto:hello@thedraftory.com" },
       ],

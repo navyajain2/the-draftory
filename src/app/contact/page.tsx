@@ -4,9 +4,9 @@ import Wordmark from "@/components/ui/Wordmark";
 import ContactForm from "@/components/contact/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact — The Draftory",
+  title: { absolute: "Contact | The Draftory" },
   description:
-    "Tell us about you and your work. A few questions to get a feel for your story — only the first three are required.",
+    "Tell us about you and your work. A few questions to get a feel for your story, only the first three are required.",
 };
 
 export default function ContactPage() {

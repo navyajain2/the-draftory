@@ -33,20 +33,50 @@ export default function ScrollTheme() {
       document.documentElement.style.setProperty("--page-fg", t.fg);
     };
 
+    // Find which section is at (or just above) the viewport midpoint.
+    // More reliable than IntersectionObserver for fast scrolling because we
+    // always read current DOM positions rather than relying on change events
+    // that can be batched or skipped between frames.
+    const midpoint = () => window.innerHeight / 2 + window.scrollY;
+
+    const update = () => {
+      const mid = midpoint();
+      // Walk sections in reverse so the last one whose top ≤ mid wins
+      // (i.e. the deepest section that has already started)
+      let best: HTMLElement | null = null;
+      for (const s of sections) {
+        if (s.offsetTop <= mid) best = s;
+        else break;
+      }
+      if (best) apply(best.dataset.theme || "light");
+    };
+
+    // Run on scroll with rAF throttle so we never miss a frame
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        update();
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    // Also observe section entries so the colour updates even without scrolling
+    // (e.g. on page load or after layout shifts)
     const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            apply((entry.target as HTMLElement).dataset.theme || "light");
-          }
-        }
-      },
-      // a 0px-tall band across the viewport middle — one section crosses at a time
+      () => update(),
       { rootMargin: "-50% 0px -50% 0px", threshold: 0 },
     );
-
     sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
+
+    update(); // apply immediately on mount
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      observer.disconnect();
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   return null;

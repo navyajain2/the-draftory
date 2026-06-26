@@ -33,20 +33,21 @@ export default function ScrollTheme() {
       document.documentElement.style.setProperty("--page-fg", t.fg);
     };
 
-    // Find which section is at (or just above) the viewport midpoint.
+    // Find which section is crossing the viewport's vertical midline.
     // More reliable than IntersectionObserver for fast scrolling because we
     // always read current DOM positions rather than relying on change events
     // that can be batched or skipped between frames.
-    const midpoint = () => window.innerHeight / 2 + window.scrollY;
-
+    //
+    // Uses getBoundingClientRect (viewport-relative, transform-aware) rather
+    // than offsetTop — sections live inside FooterReveal's transformed wrapper,
+    // so offsetTop is measured against that wrapper and shifts with its drift.
     const update = () => {
-      const mid = midpoint();
-      // Walk sections in reverse so the last one whose top ≤ mid wins
-      // (i.e. the deepest section that has already started)
+      const mid = window.innerHeight / 2;
+      // The deepest section whose top has crossed above the midline is the one
+      // currently covering it (its bottom sits below mid).
       let best: HTMLElement | null = null;
       for (const s of sections) {
-        if (s.offsetTop <= mid) best = s;
-        else break;
+        if (s.getBoundingClientRect().top <= mid) best = s;
       }
       if (best) apply(best.dataset.theme || "light");
     };

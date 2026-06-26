@@ -68,18 +68,7 @@ export default function Stages() {
         })}
       </div>
 
-      <Reveal delay={0.1}>
-        <div className="mt-10 max-w-xl space-y-3 text-base text-ink-soft">
-          <p>
-            <span className="text-ink">{stages.commitment.heading}</span>
-            {" "}
-            {stages.commitment.subheading}
-          </p>
-          {stages.commitment.body.map((para, i) => (
-            <p key={i}>{para}</p>
-          ))}
-        </div>
-      </Reveal>
+
     </section>
   );
 }

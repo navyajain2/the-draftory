@@ -20,14 +20,25 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const post = blog.posts.find((p) => p.slug === slug);
-  if (!post) return { title: "Not found — The Draftory" };
+  if (!post) return { title: "Not found" };
   return {
-    title: `${post.title} — The Draftory`,
+    title: post.title,
     description: post.excerpt,
+    alternates: { canonical: `https://thedraftory.com/blog/${slug}` },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: "article",
+      url: `https://thedraftory.com/blog/${slug}`,
+      images: [{ url: post.img, width: 1200, height: 630, alt: post.title }],
+      publishedTime: post.isoDate,
+      authors: ["https://thedraftory.com"],
+      tags: [post.tag, "founder ghostwriting", "founder personal brand"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
       images: [post.img],
     },
   };
@@ -85,8 +96,36 @@ export default async function ArticlePage({ params }: Params) {
     .filter((p) => p.slug !== slug)
     .slice(0, 3);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    image: post.img,
+    datePublished: post.isoDate,
+    dateModified: post.isoDate,
+    author: {
+      "@type": "Organization",
+      name: "The Draftory",
+      url: "https://thedraftory.com",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "The Draftory",
+      url: "https://thedraftory.com",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://thedraftory.com/blog/${slug}`,
+    },
+  };
+
   return (
     <main className="relative bg-noir text-paper">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <InnerHeader tone="paper" action={{ label: "Journal", href: "/blog" }} />
 
       <section data-theme="dark" className="shell pt-32 md:pt-40">

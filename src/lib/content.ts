@@ -118,25 +118,25 @@ export const insights = {
   cta: { label: "Discover insights", href: "/blog" },
   items: [
     {
-      tag: "Essay",
-      date: "06.18.2025",
-      title: "Why most founder LinkedIn sounds the same — and how to escape it.",
-      img: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1100&auto=format&fit=crop",
-      href: "/blog/why-most-founder-linkedin-sounds-the-same",
-    },
-    {
       tag: "Playbook",
-      date: "05.30.2025",
-      title: "The first 90 days of a ghostwriting partnership.",
-      img: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1100&auto=format&fit=crop",
-      href: "/blog/first-90-days-of-a-ghostwriting-partnership",
+      date: "07.01.2025",
+      title: "The founder's guide to LinkedIn ghostwriting.",
+      img: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1100&auto=format&fit=crop",
+      href: "/blog/the-founders-guide-to-linkedin-ghostwriting",
     },
     {
-      tag: "Field notes",
-      date: "05.12.2025",
-      title: "What a hundred founder posts taught us about trust.",
-      img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1100&auto=format&fit=crop",
-      href: "/blog/what-a-hundred-founder-posts-taught-us-about-trust",
+      tag: "Essay",
+      date: "06.25.2025",
+      title: "LinkedIn ghostwriting for YC founders: why the best operators get help writing.",
+      img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1100&auto=format&fit=crop",
+      href: "/blog/linkedin-ghostwriting-for-yc-founders",
+    },
+    {
+      tag: "Essay",
+      date: "06.20.2025",
+      title: "How VC-backed founders build thought leadership without writing it themselves.",
+      img: "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1100&auto=format&fit=crop",
+      href: "/blog/how-vc-backed-founders-build-thought-leadership",
     },
   ],
 };
@@ -156,6 +156,7 @@ export type BlogPost = {
   slug: string;
   tag: string;
   date: string; // display date
+  isoDate: string; // ISO 8601 for schema / OG
   readingTime: string;
   title: string;
   excerpt: string;
@@ -191,6 +192,7 @@ export const blog = {
       slug: "why-most-founder-linkedin-sounds-the-same",
       tag: "Essay",
       date: "June 18, 2025",
+      isoDate: "2025-06-18",
       readingTime: "6 min read",
       title:
         "Why most founder LinkedIn sounds the same — and how to escape it.",
@@ -245,6 +247,7 @@ export const blog = {
       slug: "first-90-days-of-a-ghostwriting-partnership",
       tag: "Playbook",
       date: "May 30, 2025",
+      isoDate: "2025-05-30",
       readingTime: "8 min read",
       title: "The first 90 days of a ghostwriting partnership.",
       excerpt:
@@ -298,6 +301,7 @@ export const blog = {
       slug: "what-a-hundred-founder-posts-taught-us-about-trust",
       tag: "Field notes",
       date: "May 12, 2025",
+      isoDate: "2025-05-12",
       readingTime: "5 min read",
       title: "What a hundred founder posts taught us about trust.",
       excerpt:
@@ -338,6 +342,7 @@ export const blog = {
       slug: "the-case-against-posting-every-day",
       tag: "Essay",
       date: "April 28, 2025",
+      isoDate: "2025-04-28",
       readingTime: "4 min read",
       title: "The case against posting every day.",
       excerpt:
@@ -371,6 +376,341 @@ export const blog = {
         {
           type: "p",
           text: "The founders with the strongest presences almost never post daily. They post like they mean it, on a rhythm they can hold for years. That's the whole game.",
+        },
+      ],
+    },
+    {
+      slug: "the-founders-guide-to-linkedin-ghostwriting",
+      tag: "Playbook",
+      date: "July 1, 2025",
+      isoDate: "2025-07-01",
+      readingTime: "9 min read",
+      title: "The Founder's Guide to LinkedIn Ghostwriting.",
+      excerpt:
+        "Everything you actually need to know before hiring a ghostwriter for LinkedIn — what good looks like, what it costs, how the process works, and the one question that separates ghostwriters worth working with from everyone else.",
+      img: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1600&auto=format&fit=crop",
+      alt: "Founder at desk writing on laptop",
+      author: { name: "The Draftory", role: "Studio" },
+      body: [
+        {
+          type: "p",
+          text: "LinkedIn ghostwriting has gone from a whispered secret to an open industry in about three years. Founders use it. Executives use it. Investors use it. And yet the quality of what's out there varies so wildly that 'hiring a ghostwriter' can mean anything from transformative to catastrophic.",
+        },
+        {
+          type: "p",
+          text: "This guide is for founders who are thinking seriously about it: what you should know before you start, what good looks like, what it costs, how the process actually works, and how to avoid the very common mistakes that waste both time and money.",
+        },
+        { type: "h2", text: "Why founders hire ghostwriters in the first place" },
+        {
+          type: "p",
+          text: "The honest answer is time — but it's rarely just time. Most founders we speak to have plenty of opinions. They talk compellingly in meetings. They know exactly what they want to be known for. What they lack is the bandwidth to turn those raw thoughts into something publishable, consistently, week after week.",
+        },
+        {
+          type: "p",
+          text: "The word 'consistently' is doing the heavy lifting in that sentence. The real value of a ghostwriter isn't a single great post. It's thirty great posts over six months, at a cadence that builds a real audience rather than one that forgets you between sporadic appearances.",
+        },
+        {
+          type: "quote",
+          text: "The best LinkedIn ghostwriting is invisible. The reader should never suspect the founder didn't write it themselves.",
+        },
+        { type: "h2", text: "What a good ghostwriting process actually looks like" },
+        {
+          type: "p",
+          text: "Any ghostwriter worth hiring will spend more time listening than writing, especially at the start. Expect a series of long-form conversations — not a questionnaire, not a brief, actual conversations — where the ghostwriter is trying to understand how you think, not just what you think.",
+        },
+        {
+          type: "list",
+          items: [
+            "Voice discovery: 2–4 hours of structured conversation before a single word is drafted. The output is a working voice guide and a bank of story prompts drawn directly from your experience.",
+            "Draft and calibrate: The first few pieces are test drafts — the ghostwriter is tuning to your register, your vocabulary, your tolerance for opinion. Expect to give detailed feedback. This is where the voice actually gets built.",
+            "Buffer and publish: Before going live, you should have 3–4 weeks of content ready. Publishing from a buffer removes the panic and lets you maintain quality under real-world pressure.",
+            "Iteration: A good ghostwriter tracks what resonates and adjusts the strategy, not just the writing. Voice, format, topics, timing — all of it gets refined over months.",
+          ],
+        },
+        { type: "h2", text: "How much does a LinkedIn ghostwriter cost?" },
+        {
+          type: "p",
+          text: "The market for founder ghostwriting ranges from about $1,500/month (content mills, offshore teams, AI-assisted) to $15,000+/month (senior strategists working with a small number of high-profile clients). Most reputable boutique operations land between $3,000 and $8,000/month for three to five posts per week, with a minimum commitment of three months.",
+        },
+        {
+          type: "p",
+          text: "That three-month minimum isn't arbitrary. The first month is almost entirely investment — you're paying for voice research, not output. The second and third months are where the calibration starts paying off and the writing actually improves. If a ghostwriter offers a one-month trial, they're optimising for their business model, not your results.",
+        },
+        { type: "h2", text: "The one question that separates good ghostwriters from bad ones" },
+        {
+          type: "p",
+          text: "Ask them: 'What's a piece of content you've talked a client out of?' If they can answer with a specific story — a post that would have been off-brand, a viral angle that would have felt hollow, a topic the audience wouldn't have cared about — you're talking to someone who understands their job. If they can't, they're an order-taker, not a partner.",
+        },
+        {
+          type: "p",
+          text: "The best ghostwriting relationships are ones where the ghostwriter occasionally pushes back. Your brand has a logic to it. Someone should be protecting that logic, not just producing content to fill a calendar.",
+        },
+        { type: "h2", text: "What to send a ghostwriter before you start" },
+        {
+          type: "list",
+          items: [
+            "Three to five posts or pieces of writing you genuinely like — your own or someone else's. Not because the ghostwriter will copy them, but because they reveal your aesthetic sensibility faster than any brief.",
+            "The last three LinkedIn posts you published, with your honest notes on what felt right and wrong about each one.",
+            "One paragraph on what you want to be known for in five years — not your company, you specifically.",
+            "Any subjects you consider off-limits or wouldn't be comfortable defending publicly.",
+          ],
+        },
+        {
+          type: "p",
+          text: "A ghostwriter who doesn't ask you for any of this before starting is not going to write in your voice. They're going to write in a voice, and hope you like it.",
+        },
+      ],
+    },
+    {
+      slug: "linkedin-ghostwriting-for-yc-founders",
+      tag: "Essay",
+      date: "June 25, 2025",
+      isoDate: "2025-06-25",
+      readingTime: "7 min read",
+      title: "LinkedIn Ghostwriting for YC Founders: Why the Best Operators Get Help Writing.",
+      excerpt:
+        "Y Combinator teaches you to build fast, talk to users, and launch. It doesn't teach you to build an audience. Here's why more YC founders are turning to ghostwriters — and what makes the great ones different from everyone else.",
+      img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1600&auto=format&fit=crop",
+      alt: "Founder in a meeting room",
+      author: { name: "The Draftory", role: "Studio" },
+      body: [
+        {
+          type: "p",
+          text: "YC teaches you to move fast. Demo Day teaches you to pitch. Neither teaches you to build an audience — and that gap shows up clearly in the LinkedIn feeds of most YC founders, where incredible companies are represented by writing that does them no justice.",
+        },
+        {
+          type: "p",
+          text: "The irony is that YC founders have more to say than almost anyone. They've chosen hard problems. They've made unusual bets. They've learned things in twelve weeks that most people never learn. The audience is there if they can reach it. The writing is the bottleneck.",
+        },
+        { type: "h2", text: "What makes YC founders different to ghostwrite for" },
+        {
+          type: "p",
+          text: "The strongest thing a YC founder has is credibility — the batch, the company, the problem they've chosen to work on. But credibility alone doesn't build an audience. Credibility plus consistent, specific, honest writing does.",
+        },
+        {
+          type: "p",
+          text: "The YC founders who break through on LinkedIn aren't the ones with the flashiest companies. They're the ones willing to write about the specifics: the mistake they made in batch, the counterintuitive thing they learned from a user call, the reason they turned down an acquisition offer. Specificity is the differentiator, and it's exactly what most ghostwriters flatten out.",
+        },
+        {
+          type: "quote",
+          text: "A YC badge is a beginning, not a strategy. The founders who build real audiences do it with the details everyone else is too polished to share.",
+        },
+        { type: "h2", text: "The three types of YC founder content that actually work" },
+        {
+          type: "list",
+          items: [
+            "The founder-as-customer story. You built this because you had the problem yourself. That origin story, told with specific detail, is more powerful than any pitch deck summary.",
+            "The counter-narrative. YC is full of people with strong opinions that cut against conventional wisdom. 'Everyone said X. We did Y. Here's what happened.' This is the format that earns followers and trust simultaneously.",
+            "The build-in-public update. Not a metrics dump, but a specific account of what you tried, what worked, and what surprised you. The goal isn't transparency for its own sake — it's the kind of honesty that makes people want to follow your journey.",
+          ],
+        },
+        { type: "h2", text: "Why YC founders use ghostwriters" },
+        {
+          type: "p",
+          text: "The honest answer is bandwidth. Batch is brutal. Post-batch is more brutal. There are users to talk to, hires to make, investors to update, and a product to build. Writing LinkedIn posts is the thing that falls off the list first — not because it isn't valuable, but because it isn't urgent.",
+        },
+        {
+          type: "p",
+          text: "The problem with that calculation is that the best time to build an audience is before you need one. A YC founder who starts posting consistently during batch, or in the months immediately after, will have a meaningfully larger platform by the time they raise their Series A than one who waits until the company is established.",
+        },
+        { type: "h2", text: "What to look for in a ghostwriter as a YC founder" },
+        {
+          type: "p",
+          text: "Not all ghostwriters understand the startup world. Many are trained on B2B SaaS templates or marketing-speak that will make you sound like a press release. What you need is someone who reads Hacker News without prompting, understands why founders talk the way they do, and won't try to polish you into a LinkedIn influencer.",
+        },
+        {
+          type: "p",
+          text: "The right ghostwriter for a YC founder makes you sound like your sharpest self on a long Zoom call — not like you hired someone to write your posts. If you read a draft and immediately want to change it to sound more like how you'd actually say it in conversation, that's not the right ghostwriter.",
+        },
+        {
+          type: "p",
+          text: "The right one makes you read it and think: I couldn't have said it better myself.",
+        },
+      ],
+    },
+    {
+      slug: "how-vc-backed-founders-build-thought-leadership",
+      tag: "Essay",
+      date: "June 20, 2025",
+      isoDate: "2025-06-20",
+      readingTime: "6 min read",
+      title: "How VC-Backed Founders Build Thought Leadership (Without Writing It Themselves).",
+      excerpt:
+        "Founders backed by Sequoia, a16z, Benchmark, and the top-tier funds share one thing beyond great companies: consistent, specific, trusted voices online. Almost none of them write alone. Here's how it works.",
+      img: "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1600&auto=format&fit=crop",
+      alt: "Two founders in conversation",
+      author: { name: "The Draftory", role: "Studio" },
+      body: [
+        {
+          type: "p",
+          text: "There's a common assumption that the best-known founders write their own content. A few do. Most don't — or more precisely, most don't write it alone. Behind the LinkedIn posts, the Substack essays, and the long-form threads that go viral is usually some combination of a ghostwriter, a chief of staff, a comms lead, or a trusted editor who shapes the raw material into something worth reading.",
+        },
+        {
+          type: "p",
+          text: "This isn't a secret. It's a system. And for founders backed by Sequoia, a16z, Benchmark, Accel, and the other top-tier firms, building that system early is increasingly considered part of the job.",
+        },
+        { type: "h2", text: "Why investors want founders online" },
+        {
+          type: "p",
+          text: "The best investors understand that a founder's personal brand is a company asset. A founder with 50,000 followers and a reputation for insightful writing attracts better candidates, earlier. It attracts press attention without a PR agency. It gives investors a distribution advantage when they want to amplify a portfolio announcement. And it builds the kind of trust with potential customers that no amount of paid acquisition can buy.",
+        },
+        {
+          type: "quote",
+          text: "The best investors don't just fund companies. They fund founders who can bring others along for the journey — and writing is how you bring people along at scale.",
+        },
+        { type: "h2", text: "What the best-known VC-backed founders have in common" },
+        {
+          type: "p",
+          text: "Consistency is the most obvious pattern. The founders who've built real audiences online don't post in bursts — they show up steadily, at a cadence their audience learns to expect. That consistency is almost impossible to maintain alone while running a company, which is exactly why support structures exist.",
+        },
+        {
+          type: "p",
+          text: "The second pattern is specificity. The content that travels from these founders isn't high-level strategy or motivational filler. It's specific: a decision they made and why, a number they watched change and what it taught them, an assumption they held that turned out to be wrong. The specificity is what makes it credible, and credibility is what makes people follow you rather than just like a post once.",
+        },
+        {
+          type: "list",
+          items: [
+            "Sequoia's portfolio has produced some of the most-followed founders on LinkedIn — not by accident, but because the firm has actively encouraged founders to invest in their online presence as part of the company-building process.",
+            "a16z founders routinely publish essays and long-form posts that are clearly the product of a content team or editor — polished, argued, and on-message in ways that casual posting rarely achieves.",
+            "Benchmark's approach tends to favour depth over frequency: fewer posts, more substance, a higher bar for what goes out. The result is a different kind of authority — one that signals rigour rather than reach.",
+          ],
+        },
+        { type: "h2", text: "The content team model for VC-backed founders" },
+        {
+          type: "p",
+          text: "For early-stage founders (pre-Series B), the typical model is a single ghostwriter or editorial partner who works closely with the founder: conducting regular voice sessions, building a bank of story material, drafting everything from LinkedIn posts to newsletter issues, and iterating based on what the audience responds to.",
+        },
+        {
+          type: "p",
+          text: "For later-stage founders, the structure often grows: a comms lead, a ghostwriter for long-form content, a separate person managing distribution and analytics. But even at that stage, the foundation is the same — a trusted partner who understands how the founder thinks and can translate that into writing.",
+        },
+        { type: "h2", text: "The one thing that doesn't scale" },
+        {
+          type: "p",
+          text: "The raw material. No ghostwriter, no AI tool, no content team can manufacture the ideas, the experiences, and the specific opinions that make a founder's writing worth reading. What they can do is make it much easier for those ideas to get out of the founder's head and into the world — consistently, clearly, and in a voice that actually sounds like them.",
+        },
+        {
+          type: "p",
+          text: "The founders who do this well don't think of it as outsourcing their voice. They think of it as building a system so their voice can reach more people, more often, without requiring them to become a content creator.",
+        },
+      ],
+    },
+    {
+      slug: "how-much-does-a-ghostwriter-cost",
+      tag: "Field notes",
+      date: "June 10, 2025",
+      isoDate: "2025-06-10",
+      readingTime: "5 min read",
+      title: "How Much Does a Ghostwriter Cost? (A Founder's Pricing Guide for 2025).",
+      excerpt:
+        "Ghostwriting prices vary by a factor of ten and the difference isn't always quality. Here's what the market actually looks like in 2025, what drives the price, and what to watch out for at each tier.",
+      img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1600&auto=format&fit=crop",
+      alt: "Writing and notes on a desk",
+      author: { name: "The Draftory", role: "Studio" },
+      body: [
+        {
+          type: "p",
+          text: "The ghostwriting market has no standard pricing. You can find someone to write LinkedIn posts for $300/month or $30,000/month, and the surface-level promise is often identical. Here's a clear breakdown of what the market actually looks like — and what you're actually buying at each level.",
+        },
+        { type: "h2", text: "The four price tiers" },
+        {
+          type: "list",
+          items: [
+            "$500–$1,500/month — Content mills, AI-assisted services, offshore teams. High volume, low customisation. Posts may be on-topic but they won't be in your voice. Fine for filling a calendar; bad for building a brand.",
+            "$2,000–$4,000/month — Freelance ghostwriters or small studios working with multiple clients. Quality varies significantly by individual. At this tier you can find genuinely good writing, but you'll need to vet carefully and expect more revision cycles while the voice is calibrated.",
+            "$4,000–$8,000/month — Boutique studios and senior ghostwriters working with a small client roster. This is where real voice development happens: structured discovery, a proper process, someone invested in your long-term results. Most founders who take this seriously eventually land here.",
+            "$10,000+/month — High-profile ghostwriters, agency retainers with comms strategy included, or teams managing multiple content formats simultaneously. Warranted for founders who have an existing large audience and need serious strategic and editorial support.",
+          ],
+        },
+        { type: "h2", text: "What drives the price beyond quality" },
+        {
+          type: "p",
+          text: "The biggest price driver is scope, not skill. A ghostwriter charging $2,000/month may be just as talented as one charging $6,000 — they're simply doing less. The higher-end engagement typically includes content strategy, editorial direction, platform analytics, and a higher volume of content across multiple formats.",
+        },
+        {
+          type: "p",
+          text: "The second driver is process rigour. Building a real voice requires sustained investment in discovery: long conversations, a story bank, an evolving brief. Ghostwriters who skip this are faster to start and cheaper to run, but the output rarely holds up over time.",
+        },
+        {
+          type: "quote",
+          text: "You don't pay for the words. You pay for the thinking behind the words — the ability to sound like you without you having to write it.",
+        },
+        { type: "h2", text: "What to watch out for at each tier" },
+        {
+          type: "p",
+          text: "At the low end: generic content that could have been written by anyone, for anyone. The tell is templates — posts that follow the same structure every week, regardless of what you actually have to say.",
+        },
+        {
+          type: "p",
+          text: "At the mid tier: inconsistent voice, especially in the first few months. The ghostwriter is still calibrating, which is normal — but be wary of anyone who doesn't have a structured process for doing so. If they're not asking you good questions, the writing will reflect that.",
+        },
+        {
+          type: "p",
+          text: "At the high end: make sure you're paying for output, not just access. Premium ghostwriting relationships should have clear deliverables, regular feedback cycles, and evidence of an evolving strategy — not just a monthly invoice and the occasional draft.",
+        },
+        { type: "h2", text: "The commitment question" },
+        {
+          type: "p",
+          text: "Almost every serious ghostwriting engagement has a minimum commitment, usually three months. This isn't a cash grab — it's a structural requirement. The first month is discovery. The second is calibration. The third is where you see the first real results. If you're unwilling to commit three months, you're unlikely to see meaningful results regardless of who you hire.",
+        },
+      ],
+    },
+    {
+      slug: "should-founders-write-their-own-content",
+      tag: "Essay",
+      date: "June 3, 2025",
+      isoDate: "2025-06-03",
+      readingTime: "5 min read",
+      title: "Should Founders Write Their Own Content?",
+      excerpt:
+        "The most common question we get asked — and the most misunderstood one. Here's the honest answer, which is more nuanced than either the 'authenticity' crowd or the 'just outsource it' crowd will tell you.",
+      img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1600&auto=format&fit=crop",
+      alt: "Person writing in a notebook",
+      author: { name: "The Draftory", role: "Studio" },
+      body: [
+        {
+          type: "p",
+          text: "The question comes up almost every time we speak to a new founder: should I be writing this myself? And the honest answer is that it's the wrong question. The right question is: what does 'writing it myself' actually mean — and what are you optimising for?",
+        },
+        { type: "h2", text: "What 'authentic' content actually requires" },
+        {
+          type: "p",
+          text: "Authentic content doesn't mean unassisted content. Every published author has an editor. Every speechmaker has a speechwriter. What makes writing feel authentic is whether it sounds like the person who's putting their name to it — not whether they typed every word.",
+        },
+        {
+          type: "p",
+          text: "The founders who produce the most trusted content aren't necessarily the ones writing alone. They're the ones whose writing reflects how they actually think: their priorities, their vocabulary, their specific opinions. Whether they wrote it themselves or worked with a ghostwriter is beside the point.",
+        },
+        {
+          type: "quote",
+          text: "No one asks whether a CEO wrote their own earnings call. They ask whether it reflects the company's actual thinking. The same logic applies to LinkedIn.",
+        },
+        { type: "h2", text: "When you should write your own content" },
+        {
+          type: "list",
+          items: [
+            "You genuinely enjoy writing and have the time to do it consistently. Not occasionally — consistently, week after week, for months.",
+            "You're in the early stages of finding your voice and need the repetition to understand what you actually want to say.",
+            "Your content strategy depends on real-time commentary — reacting to news, posting in the moment, engaging in fast-moving conversations. A ghostwriter can't match that speed.",
+          ],
+        },
+        { type: "h2", text: "When you should get help" },
+        {
+          type: "list",
+          items: [
+            "You have lots to say but writing is the bottleneck — not ideas, not experience, not opinions. Just the act of getting it onto the page.",
+            "You've tried writing consistently and failed. Not once, but repeatedly. The intention is always there; the execution isn't.",
+            "You're at a stage where your time is worth more than the cost of a ghostwriter. A Series A founder spending four hours a week on LinkedIn posts is making a strange trade.",
+          ],
+        },
+        { type: "h2", text: "The version most founders end up at" },
+        {
+          type: "p",
+          text: "In practice, the best content relationships aren't ones where the founder disappears from the process. They're collaborative: the founder brings the thinking, the experience, the opinions. The ghostwriter brings structure, consistency, and the editorial discipline to turn raw material into something worth reading.",
+        },
+        {
+          type: "p",
+          text: "You're not outsourcing your voice. You're building a system so your voice can reach more people, more often, without consuming the hours you don't have.",
         },
       ],
     },

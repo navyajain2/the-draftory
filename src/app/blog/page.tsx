@@ -7,8 +7,17 @@ import Reveal from "@/components/anim/Reveal";
 import BlogList from "@/components/sections/BlogList";
 
 export const metadata: Metadata = {
-  title: "Journal — The Draftory",
-  description: blog.intro,
+  title: "Journal — Founder Ghostwriting, Personal Brand & Thought Leadership",
+  description:
+    "Field notes, playbooks, and essays on ghostwriting, founder personal brand, LinkedIn strategy, and building trust through writing. From the team at The Draftory.",
+  alternates: { canonical: "https://thedraftory.com/blog" },
+  openGraph: {
+    title: "Journal — The Draftory",
+    description:
+      "Essays and playbooks on founder ghostwriting, LinkedIn strategy, personal brand, and writing that builds trust.",
+    type: "website",
+    url: "https://thedraftory.com/blog",
+  },
 };
 
 export default function BlogIndex() {

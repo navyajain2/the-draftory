@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { footer, brand } from "@/lib/content";
 import AnimatedHeading from "@/components/anim/AnimatedHeading";
 import Reveal from "@/components/anim/Reveal";
@@ -65,12 +66,12 @@ export default function Footer() {
         <div className="shrink-0 text-sm text-paper/45 md:text-right">
           <p>© {new Date().getFullYear()} {brand.name}. All rights reserved.</p>
           <p className="mt-2 flex flex-wrap items-center gap-x-5 gap-y-1 md:justify-end">
-            <a href="#" className="cursor-pointer transition-colors hover:text-paper">
+            <Link href="/privacy" className="cursor-pointer transition-colors hover:text-paper">
               Privacy Policy
-            </a>
-            <a href="#" className="cursor-pointer transition-colors hover:text-paper">
+            </Link>
+            <Link href="/terms" className="cursor-pointer transition-colors hover:text-paper">
               Terms of Service
-            </a>
+            </Link>
             <a
               href={`mailto:${brand.email}`}
               className="cursor-pointer transition-colors hover:text-paper"

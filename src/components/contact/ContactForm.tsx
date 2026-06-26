@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useForm } from "@formspree/react";
 import { contactForm as f } from "@/lib/content";
 import AnimatedHeading from "@/components/anim/AnimatedHeading";
 import Reveal from "@/components/anim/Reveal";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 /* ---- floating-label fields (zypsy style) -------------------------------- */
@@ -177,14 +179,11 @@ function PillGroup({
   );
 }
 
-export default function ContactForm() {
-  const [sent, setSent] = useState(false);
+// Replace "YOUR_FORM_ID" below with your Formspree form ID (e.g. "xyzabcde")
+const FORMSPREE_ID = "YOUR_FORM_ID";
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    // TODO: wire to a real endpoint (Formspree / Resend / /api/contact).
-    setSent(true);
-  }
+export default function ContactForm() {
+  const [state, handleFormspreeSubmit] = useForm(FORMSPREE_ID);
 
   return (
     <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
@@ -201,7 +200,7 @@ export default function ContactForm() {
 
       {/* right: the form (or success state) */}
       <Reveal delay={0.1}>
-        {sent ? (
+        {state.succeeded ? (
           <div className="flex min-h-[20rem] flex-col justify-center border-t border-white/15 pt-12">
             <h2 className="display display-md text-white">{f.success.title}</h2>
             <p className="mt-5 max-w-md text-lg leading-relaxed text-white/55">
@@ -209,7 +208,7 @@ export default function ContactForm() {
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+          <form onSubmit={handleFormspreeSubmit} className="flex flex-col gap-8">
 
             {/* ── Your info ─────────────────────────────────────────── */}
             <SectionHeading>Your info</SectionHeading>
@@ -262,7 +261,15 @@ export default function ContactForm() {
                   className="mt-1 h-4 w-4 shrink-0 accent-[var(--color-accent)]"
                 />
                 <span className="text-base leading-snug">
-                  {f.consent} <span className={reqCls}>*</span>
+                  Yes, I agree to the{" "}
+                  <Link href="/terms" className="underline underline-offset-2 hover:text-white transition-colors">
+                    Terms of Service
+                  </Link>{" "}
+                  and{" "}
+                  <Link href="/privacy" className="underline underline-offset-2 hover:text-white transition-colors">
+                    Privacy Policy
+                  </Link>
+                  . <span className={reqCls}>*</span>
                 </span>
               </label>
               <label className="flex cursor-pointer items-start gap-3 text-white/70">
@@ -275,14 +282,23 @@ export default function ContactForm() {
               </label>
             </div>
 
+            {state.errors && !state.succeeded && (
+              <p className="text-sm text-red-400">
+                Something went wrong — please try again or email us directly at hello@thedraftory.com.
+              </p>
+            )}
+
             <button
               type="submit"
-              className="group mt-4 inline-flex w-fit items-center gap-3 bg-accent px-9 py-4 text-lg font-medium tracking-[-0.01em] text-ink transition-colors duration-300 hover:bg-accent-deep"
+              disabled={state.submitting}
+              className="group mt-4 inline-flex w-fit items-center gap-3 bg-accent px-9 py-4 text-lg font-medium tracking-[-0.01em] text-ink transition-colors duration-300 hover:bg-accent-deep disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {f.submit}
-              <span className="transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1.5">
-                →
-              </span>
+              {state.submitting ? "Sending…" : f.submit}
+              {!state.submitting && (
+                <span className="transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1.5">
+                  →
+                </span>
+              )}
             </button>
           </form>
         )}

@@ -13,15 +13,45 @@ const aspekta = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "The Draftory — A content team for founders",
+  title: {
+    default: "Ghostwriting for Founders — The Draftory",
+    template: "%s — The Draftory",
+  },
   description:
-    "We're a team of ghostwriters, strategists, and brand thinkers turning founders' raw ideas into a presence that gets noticed, remembered, and trusted.",
+    "The Draftory is a ghostwriting studio for founders and executives. We turn your raw ideas into LinkedIn posts, essays, and newsletters that build trust and get remembered.",
   metadataBase: new URL("https://thedraftory.com"),
+  keywords: [
+    "founder ghostwriter",
+    "ghostwriting for founders",
+    "LinkedIn ghostwriting",
+    "founder personal brand",
+    "thought leadership ghostwriting",
+    "executive ghostwriting",
+    "founder content strategy",
+    "ghostwriter for startups",
+    "YC founder ghostwriter",
+    "startup founder content",
+  ],
+  authors: [{ name: "The Draftory", url: "https://thedraftory.com" }],
+  creator: "The Draftory",
   openGraph: {
-    title: "The Draftory — A content team for founders",
+    title: "Ghostwriting for Founders — The Draftory",
     description:
-      "Your ideas, drafted into words worth posting. We bring great writing to exceptional founders.",
+      "We turn founders' raw ideas into LinkedIn posts, essays, and newsletters that build trust and get remembered. A small roster, on purpose.",
     type: "website",
+    url: "https://thedraftory.com",
+    siteName: "The Draftory",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ghostwriting for Founders — The Draftory",
+    description:
+      "We turn founders' raw ideas into writing that builds trust. LinkedIn, essays, newsletters.",
+    creator: "@thedraftory",
+  },
+  alternates: {
+    canonical: "https://thedraftory.com",
   },
 };
 

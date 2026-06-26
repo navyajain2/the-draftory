@@ -17,13 +17,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1.25fr_1fr] lg:gap-24">
           <div className="max-w-xl">
             <AnimatedHeading
-              text={"Sign up for our\nnewsletter"}
+              text={footer.newsletterHeading}
               className="display display-lg text-paper"
             />
             <Reveal delay={0.12}>
               <p className="mt-8 max-w-md text-lg leading-relaxed text-paper/55">
-                We partner with founders and operators, turning raw ideas into
-                writing that earns attention, trust, and lasting momentum.
+                {footer.newsletterBlurb}
               </p>
               <div className="mt-10 max-w-md">
                 <NewsletterSignup />

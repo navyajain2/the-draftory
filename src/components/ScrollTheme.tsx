@@ -1,6 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
+
+// useLayoutEffect runs before the browser paints, so the background is corrected
+// before the first frame the user sees. Falls back to useEffect during SSR.
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 /**
  * Drives a single fixed background layer (#page-bg) from the section currently
@@ -17,7 +22,7 @@ const THEMES: Record<string, { bg: string; fg: string }> = {
 };
 
 export default function ScrollTheme() {
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const bgEl = document.getElementById("page-bg");
     const sections = Array.from(
       document.querySelectorAll<HTMLElement>("[data-theme]"),
@@ -63,6 +68,20 @@ export default function ScrollTheme() {
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
+
+    // Re-sync on the moments useEffect/scroll alone miss — otherwise the bg can
+    // be left at a stale colour while a section's hardcoded text colour assumes
+    // the correct one (dark text on dark bg = invisible):
+    //  - `pageshow` fires when the page is restored from the bfcache on a
+    //    back/forward navigation, with scroll already at a mid-page position the
+    //    mount-time update() never saw.
+    //  - `load` covers late layout shifts (web fonts, images) moving sections.
+    //  - `resize` covers viewport changes that move the midline.
+    const resync = () => update();
+    window.addEventListener("pageshow", resync);
+    window.addEventListener("load", resync);
+    window.addEventListener("resize", resync);
+
     // Also observe section entries so the colour updates even without scrolling
     // (e.g. on page load or after layout shifts)
     const observer = new IntersectionObserver(
@@ -75,6 +94,9 @@ export default function ScrollTheme() {
 
     return () => {
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("pageshow", resync);
+      window.removeEventListener("load", resync);
+      window.removeEventListener("resize", resync);
       observer.disconnect();
       if (raf) cancelAnimationFrame(raf);
     };

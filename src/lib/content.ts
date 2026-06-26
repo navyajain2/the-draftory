@@ -10,7 +10,6 @@ export const brand = {
 export const nav = [
   { label: "Approach", href: "#approach" },
   { label: "Who it's for", href: "#audience" },
-  { label: "Process", href: "#process" },
   { label: "Journal", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
@@ -77,14 +76,6 @@ export const stages = {
       body: "As your company grows, your writing should too. We help your ideas evolve alongside your business, ensuring your voice stays as thoughtful as your ambitions.",
     },
   ],
-  commitment: {
-    heading: "Why a 3-month minimum commitment?",
-    subheading: "Because good ghostwriting takes time.",
-    body: [
-      "The first month is spent understanding your voice. The next few months are where consistency starts paying off and we learn what resonates with your audience.",
-      "Anything shorter usually means stopping just as the work starts getting better.",
-    ],
-  },
 };
 
 export const principles = {
@@ -119,21 +110,21 @@ export const insights = {
   items: [
     {
       tag: "Playbook",
-      date: "07.01.2025",
+      date: "July 1, 2025",
       title: "The founder's guide to LinkedIn ghostwriting.",
       img: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1100&auto=format&fit=crop",
       href: "/blog/the-founders-guide-to-linkedin-ghostwriting",
     },
     {
       tag: "Essay",
-      date: "06.25.2025",
+      date: "June 25, 2025",
       title: "LinkedIn ghostwriting for YC founders: why the best operators get help writing.",
       img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1100&auto=format&fit=crop",
       href: "/blog/linkedin-ghostwriting-for-yc-founders",
     },
     {
       tag: "Essay",
-      date: "06.20.2025",
+      date: "June 20, 2025",
       title: "How VC-backed founders build thought leadership without writing it themselves.",
       img: "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1100&auto=format&fit=crop",
       href: "/blog/how-vc-backed-founders-build-thought-leadership",
@@ -891,6 +882,9 @@ export const faqs = {
 
 export const footer = {
   big: "Words worth\nyour name.",
+  newsletterHeading: "Sign up for our\nnewsletter",
+  newsletterBlurb:
+    "We partner with founders and operators, turning raw ideas into writing that earns attention, trust, and lasting momentum.",
   blurb:
     "We bring great writing to exceptional founders — turning raw ideas into a presence that gets noticed, remembered, and trusted.",
   columns: [
@@ -899,7 +893,6 @@ export const footer = {
       links: [
         { label: "Approach", href: "#approach" },
         { label: "Who it's for", href: "#audience" },
-        { label: "Process", href: "#process" },
         { label: "Contact", href: "/contact" },
       ],
     },

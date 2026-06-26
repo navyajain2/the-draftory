@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Nav from "@/components/sections/Nav";
 
 export const metadata: Metadata = {
-  title: "A content team for founders. | The Draftory",
+  title: "A content team for founders.",
   description:
     "The Draftory is a ghostwriting studio for founders and executives. We turn your ideas into LinkedIn posts, essays, and newsletters that build trust, attract the right people, and compound over time.",
   alternates: { canonical: "https://thedraftory.com" },

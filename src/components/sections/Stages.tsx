@@ -8,7 +8,7 @@ import Reveal from "@/components/anim/Reveal";
 import { cn } from "@/lib/utils";
 
 export default function Stages() {
-  // No card is active by default (both charcoal); hovering one turns it amber.
+  // No card is active by default (both charcoal); hovering or tapping turns it amber.
   const [active, setActive] = useState<number | null>(null);
 
   return (
@@ -21,6 +21,7 @@ export default function Stages() {
               key={s.title}
               onMouseEnter={() => setActive(i)}
               onMouseLeave={() => setActive(null)}
+              onTouchStart={() => setActive((prev) => (prev === i ? null : i))}
               className={cn(
                 "relative flex min-h-[20rem] cursor-default flex-col justify-between overflow-hidden p-8 transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:min-h-[31rem] md:p-10",
                 isActive

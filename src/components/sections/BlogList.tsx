@@ -34,11 +34,17 @@ export default function BlogList({ posts, filters }: Props) {
             <button
               key={f}
               onClick={() => setActive(f)}
+              style={{
+                borderColor:
+                  active === f
+                    ? "var(--color-paper)"
+                    : "rgba(243, 240, 232, 0.5)",
+              }}
               className={cn(
                 "cursor-pointer rounded-full border px-4 py-1.5 text-sm tracking-[-0.01em] transition-colors duration-300",
                 active === f
-                  ? "border-paper bg-paper text-noir"
-                  : "border-paper/30 text-paper/70 hover:border-paper hover:text-paper",
+                  ? "bg-paper text-noir"
+                  : "text-paper/60 hover:text-paper",
               )}
             >
               {f}
@@ -72,6 +78,7 @@ export default function BlogList({ posts, filters }: Props) {
                   src={post.img}
                   alt={post.alt}
                   fill
+                  priority={post === shown[0]}
                   sizes="(max-width: 1024px) 100vw, 52vw"
                   className="object-cover transition-transform duration-[1.1s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                 />
@@ -81,7 +88,10 @@ export default function BlogList({ posts, filters }: Props) {
               <div className="flex flex-col justify-between py-1 lg:py-2">
                 <div>
                   <div className="flex items-center gap-4">
-                    <span className="rounded-full border border-paper/30 px-4 py-1.5 text-sm text-paper/80">
+                    <span
+                      style={{ borderColor: "rgba(243, 240, 232, 0.5)" }}
+                      className="rounded-full border px-4 py-1.5 text-sm text-paper/80"
+                    >
                       {post.tag}
                     </span>
                     <span className="caption text-paper/45">{post.date}</span>

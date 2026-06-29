@@ -189,7 +189,7 @@ export default function ContactForm() {
     <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24 lg:items-start">
       {/* left: heading */}
       <div className="lg:sticky lg:top-28 lg:self-start">
-        <p className="eyebrow mb-6 text-white/45">{f.eyebrow}</p>
+        {f.eyebrow && <p className="eyebrow mb-6 text-white/45">{f.eyebrow}</p>}
         <AnimatedHeading text={f.title} className="display display-lg text-white" />
         <Reveal delay={0.1}>
           <p className="mt-8 max-w-md text-lg leading-relaxed text-white/55">

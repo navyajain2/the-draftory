@@ -158,10 +158,10 @@ export type BlogPost = {
 };
 
 export const blog = {
-  eyebrow: "Journal",
+  eyebrow: "",
   title: "Notes on writing,\nfounders, and trust.",
   intro:
-    "Field notes, playbooks, and the occasional argument — what we've learned drafting the words founders put their name to.",
+    "Field notes, playbooks, and the occasional argument: what we've learned drafting the words founders put their name to.",
   featuredLabel: "Latest",
   allLabel: "More from the journal",
   filters: ["All", "Essay", "Playbook", "Field notes"],
@@ -763,9 +763,9 @@ export const cta = {
  * question). Only the first three fields are required; everything else is
  * optional. Edit labels / options here, never in the component.            */
 export const contactForm = {
-  eyebrow: "Tell us about you",
+  eyebrow: "",
   title: "Let's talk.",
-  body: "A few questions to get a feel for you and your work. Only the first three are required — the rest just help us prepare.",
+  body: "Tell us more about what you're building and how we can help.",
   // text / email / url single-line inputs
   fields: [
     { name: "fullName", label: "Full name", type: "text", required: true },

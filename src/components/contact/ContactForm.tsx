@@ -186,7 +186,7 @@ export default function ContactForm() {
   const [state, handleFormspreeSubmit] = useForm(FORMSPREE_ID);
 
   return (
-    <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
+    <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24 lg:items-start">
       {/* left: heading */}
       <div className="lg:sticky lg:top-28 lg:self-start">
         <p className="eyebrow mb-6 text-white/45">{f.eyebrow}</p>
@@ -199,7 +199,7 @@ export default function ContactForm() {
       </div>
 
       {/* right: the form (or success state) */}
-      <Reveal delay={0.1}>
+      <Reveal delay={0.1} className="lg:-mt-1">
         {state.succeeded ? (
           <div className="flex min-h-[20rem] flex-col justify-center border-t border-white/15 pt-12">
             <h2 className="display display-md text-white">{f.success.title}</h2>

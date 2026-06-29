@@ -799,7 +799,7 @@ export const contactForm = {
   workType: {
     name: "workType",
     label: "What do you need help with?",
-    options: ["LinkedIn ghostwriting", "Personal brand & positioning", "Long-form essays & newsletters", "Other"],
+    options: ["LinkedIn posts & threads", "Essays & long-form", "Newsletters / Substack", "Founder blog & website content", "Personal brand & positioning", "Other"],
   },
   needs: {
     name: "needs",

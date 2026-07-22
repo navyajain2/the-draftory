@@ -99,9 +99,6 @@ export default async function ArticlePage({ params }: Params) {
   if (!post) notFound();
 
   const related = blog.posts.filter((p) => p.slug !== slug).slice(0, 2);
-  const sidebarRelated = blog.posts
-    .filter((p) => p.slug !== slug)
-    .slice(0, 3);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -136,92 +133,53 @@ export default async function ArticlePage({ params }: Params) {
       <InnerHeader tone="paper" action={{ label: "Journal", href: "/blog" }} />
 
       <section data-theme="dark" className="shell pt-32 md:pt-40">
-        <div className="grid grid-cols-1 gap-x-16 gap-y-12 lg:grid-cols-[17rem_1fr]">
-          {/* ---------- sticky sidebar (below content on mobile) ---------- */}
-          <aside className="order-2 lg:order-none lg:sticky lg:top-28 lg:self-start">
-            <span className="inline-block rounded-full border border-line-inv px-4 py-1.5 text-sm text-paper/80">
-              {blog.eyebrow}
-            </span>
+        <article className="mx-auto max-w-3xl">
+          {/* title */}
+          <AnimatedHeading
+            text={post.title}
+            className="display display-lg text-paper"
+          />
 
-            {/* about */}
-            <div className="mt-12">
-              <p className="eyebrow text-paper/45">{blog.aboutLabel}</p>
-              <p className="mt-4 text-base leading-relaxed text-paper/60">
-                {blog.about}
-              </p>
+          {/* meta row */}
+          <Reveal delay={0.1}>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-b border-line-inv pb-8">
+              <span className="caption uppercase tracking-[0.06em] text-paper/55">
+                {post.date}
+              </span>
+              <span className="caption uppercase tracking-[0.12em] text-paper/55">
+                {post.readingTime}
+              </span>
+              <span className="caption uppercase tracking-[0.12em] text-paper/55">
+                Written by {post.author.name}
+              </span>
+              <span className="rounded-full border border-line-inv px-3 py-1 text-xs text-paper/70">
+                {post.tag}
+              </span>
             </div>
+          </Reveal>
 
-            {/* subscribe */}
-            <div className="mt-10">
-              <NewsletterSignup />
+          {/* hero image — full container width */}
+          <Reveal delay={0.15}>
+            <div className="relative mt-10 aspect-[16/9] w-full overflow-hidden bg-noir-soft">
+              <Image
+                src={post.img}
+                alt={post.alt}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 48rem"
+                className="object-cover"
+              />
             </div>
+          </Reveal>
 
-            {/* related links */}
-            <div className="mt-12">
-              <p className="eyebrow text-paper/45">{blog.relatedLabel}</p>
-              <ul className="mt-4 flex flex-col">
-                {sidebarRelated.map((p) => (
-                  <li key={p.slug} className="border-t border-line-inv">
-                    <Link
-                      href={`/blog/${p.slug}`}
-                      className="block py-4 text-base text-paper/85 transition-colors hover:text-accent"
-                    >
-                      {p.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </aside>
-
-          {/* ---------- content column ---------- */}
-          <article className="order-1 min-w-0 lg:order-none">
-            <AnimatedHeading
-              text={post.title}
-              className="display display-lg max-w-[20ch] text-paper"
-            />
-
-            {/* meta row */}
-            <Reveal delay={0.1}>
-              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-b border-line-inv pb-8">
-                <span className="caption uppercase tracking-[0.06em] text-paper/55">
-                  {post.date}
-                </span>
-                <span className="caption uppercase tracking-[0.12em] text-paper/55">
-                  {post.readingTime}
-                </span>
-                <span className="caption uppercase tracking-[0.12em] text-paper/55">
-                  Written by {post.author.name}
-                </span>
-                <span className="rounded-full border border-line-inv px-3 py-1 text-xs text-paper/70">
-                  {post.tag}
-                </span>
-              </div>
-            </Reveal>
-
-            {/* hero image */}
-            <Reveal delay={0.15}>
-              <div className="relative mt-10 aspect-[16/9] w-full overflow-hidden bg-noir-soft">
-                <Image
-                  src={post.img}
-                  alt={post.alt}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                  className="object-cover"
-                />
-              </div>
-            </Reveal>
-
-            {/* lede + body */}
-            <div className="mt-12">
-              <p className="text-xl leading-relaxed text-paper/80 md:text-2xl">
-                {post.excerpt}
-              </p>
-              {post.body.map((block, i) => (
-                <Block key={i} block={block} />
-              ))}
-            </div>
+          {/* lede + body — constrained to 65ch for comfortable reading */}
+          <div className="mx-auto mt-12 max-w-prose">
+            <p className="text-xl leading-relaxed text-paper/80 md:text-2xl">
+              {post.excerpt}
+            </p>
+            {post.body.map((block, i) => (
+              <Block key={i} block={block} />
+            ))}
 
             {/* author card */}
             <div className="mt-16 flex items-center gap-4 border-t border-line-inv pt-8">
@@ -238,8 +196,13 @@ export default async function ArticlePage({ params }: Params) {
             <div className="mt-8">
               <ArticleShare title={post.title} />
             </div>
-          </article>
-        </div>
+
+            {/* newsletter */}
+            <div className="mt-16 border-t border-line-inv pt-12">
+              <NewsletterSignup />
+            </div>
+          </div>
+        </article>
       </section>
 
       {/* ---------- related articles ---------- */}

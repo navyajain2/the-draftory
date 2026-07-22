@@ -77,6 +77,13 @@ function Block({ block }: { block: BlogBlock }) {
           ))}
         </ul>
       );
+    case "html":
+      return (
+        <p
+          className="my-6 text-lg leading-[1.75] text-paper/65 [&_a]:text-paper [&_a]:underline [&_a]:underline-offset-4 [&_a]:transition-colors [&_a:hover]:text-accent"
+          dangerouslySetInnerHTML={{ __html: block.html }}
+        />
+      );
     default:
       return (
         <p className="my-6 text-lg leading-[1.75] text-paper/65">

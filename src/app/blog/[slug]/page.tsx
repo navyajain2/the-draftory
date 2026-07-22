@@ -172,35 +172,35 @@ export default async function ArticlePage({ params }: Params) {
             </div>
           </Reveal>
 
-          {/* lede + body — constrained to 65ch for comfortable reading */}
-          <div className="mx-auto mt-12 max-w-prose">
-            <p className="text-xl leading-relaxed text-paper/80 md:text-2xl">
-              {post.excerpt}
-            </p>
-            {post.body.map((block, i) => (
-              <Block key={i} block={block} />
-            ))}
+          {/* lede */}
+          <p className="mt-12 text-xl leading-relaxed text-paper/80 md:text-2xl">
+            {post.excerpt}
+          </p>
 
-            {/* author card */}
-            <div className="mt-16 flex items-center gap-4 border-t border-line-inv pt-8">
-              <span className="grid h-12 w-12 place-items-center rounded-full bg-paper text-base font-medium text-noir">
-                {post.author.name.charAt(0)}
-              </span>
-              <div className="leading-tight">
-                <p className="text-base text-paper">{post.author.name}</p>
-                <p className="caption text-paper/45">{post.author.role}</p>
-              </div>
-            </div>
+          {/* body */}
+          {post.body.map((block, i) => (
+            <Block key={i} block={block} />
+          ))}
 
-            {/* share */}
-            <div className="mt-8">
-              <ArticleShare title={post.title} />
+          {/* author card */}
+          <div className="mt-16 flex items-center gap-4 border-t border-line-inv pt-8">
+            <span className="grid h-12 w-12 place-items-center rounded-full bg-paper text-base font-medium text-noir">
+              {post.author.name.charAt(0)}
+            </span>
+            <div className="leading-tight">
+              <p className="text-base text-paper">{post.author.name}</p>
+              <p className="caption text-paper/45">{post.author.role}</p>
             </div>
+          </div>
 
-            {/* newsletter */}
-            <div className="mt-16 border-t border-line-inv pt-12">
-              <NewsletterSignup />
-            </div>
+          {/* share */}
+          <div className="mt-8">
+            <ArticleShare title={post.title} />
+          </div>
+
+          {/* newsletter */}
+          <div className="mt-16 border-t border-line-inv pt-12">
+            <NewsletterSignup />
           </div>
         </article>
       </section>

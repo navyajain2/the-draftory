@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import Wordmark from "@/components/ui/Wordmark";
@@ -8,6 +9,7 @@ import { nav, brand } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 export default function Nav() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   // "dark" sections want light nav text; "light"/"amber" want ink.
   const [theme, setTheme] = useState<"dark" | "light">("light");
@@ -59,7 +61,7 @@ export default function Nav() {
       observer?.disconnect();
       window.removeEventListener("resize", build);
     };
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);

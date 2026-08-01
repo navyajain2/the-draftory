@@ -57,7 +57,7 @@ const sections = [
     heading: "Your rights",
     body: [
       "You have the right to access, correct, or delete any personal information we hold about you. You may also object to or restrict how we process your data.",
-      "To exercise any of these rights, email us at hello@thedraftory.com. We will respond within 30 days.",
+      "To exercise any of these rights, email us at navya@thedraftory.com. We will respond within 30 days.",
       "If you are in the European Economic Area, you have additional rights under GDPR, including the right to lodge a complaint with your local supervisory authority.",
     ],
   },
@@ -76,7 +76,7 @@ const sections = [
   {
     heading: "Contact",
     body: [
-      "Questions about this policy? Write to us at hello@thedraftory.com. We're a small team and we read everything.",
+      "Questions about this policy? Write to us at navya@thedraftory.com. We're a small team and we read everything.",
     ],
   },
 ];

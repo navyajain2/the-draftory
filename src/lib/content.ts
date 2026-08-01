@@ -4,7 +4,7 @@
 
 export const brand = {
   name: "The Draftory",
-  email: "hello@thedraftory.com",
+  email: "navya@thedraftory.com",
 };
 
 export const nav = [
@@ -1048,7 +1048,7 @@ export const footer = {
         { label: "LinkedIn", href: "#" },
         { label: "X / Twitter", href: "#" },
         { label: "Instagram", href: "#" },
-        { label: "hello@thedraftory.com", href: "mailto:hello@thedraftory.com" },
+        { label: "navya@thedraftory.com", href: "mailto:navya@thedraftory.com" },
       ],
     },
   ],

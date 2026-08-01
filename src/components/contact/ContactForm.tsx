@@ -179,8 +179,7 @@ function PillGroup({
   );
 }
 
-// Replace "YOUR_FORM_ID" below with your Formspree form ID (e.g. "xyzabcde")
-const FORMSPREE_ID = "YOUR_FORM_ID";
+const FORMSPREE_ID = "xykrqppg";
 
 export default function ContactForm() {
   const [state, handleFormspreeSubmit] = useForm(FORMSPREE_ID);
@@ -284,7 +283,7 @@ export default function ContactForm() {
 
             {state.errors && !state.succeeded && (
               <p className="text-sm text-red-400">
-                Something went wrong — please try again or email us directly at hello@thedraftory.com.
+                Something went wrong — please try again or email us directly at navya@thedraftory.com.
               </p>
             )}
 

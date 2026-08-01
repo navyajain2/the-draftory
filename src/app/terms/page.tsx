@@ -49,7 +49,7 @@ const sections = [
     heading: "Newsletter and communications",
     body: [
       "If you subscribe to our newsletter, you consent to receive occasional emails from The Draftory on topics related to founder content, writing, and brand presence. We send infrequently and only content we consider worth reading.",
-      "You can unsubscribe at any time via the link in any email, or by contacting us directly at hello@thedraftory.com.",
+      "You can unsubscribe at any time via the link in any email, or by contacting us directly at navya@thedraftory.com.",
     ],
   },
   {
@@ -93,7 +93,7 @@ const sections = [
   {
     heading: "Contact",
     body: [
-      "Questions about these Terms? Email us at hello@thedraftory.com. We're a small team and we respond to everything.",
+      "Questions about these Terms? Email us at navya@thedraftory.com. We're a small team and we respond to everything.",
     ],
   },
 ];

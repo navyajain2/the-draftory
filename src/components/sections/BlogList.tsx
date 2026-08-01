@@ -97,7 +97,7 @@ export default function BlogList({ posts, filters }: Props) {
                     <span className="caption text-paper/45">{post.date}</span>
                   </div>
 
-                  <h2 className="display display-sm mt-7 max-w-[16ch] leading-[1.3] text-paper">
+                  <h2 className="display mt-7 max-w-[16ch] text-[clamp(1.6rem,2.4vw,2rem)] leading-[1.3] text-paper">
                     {post.title}
                   </h2>
                 </div>

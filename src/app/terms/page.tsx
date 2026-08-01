@@ -12,91 +12,57 @@ export const metadata: Metadata = {
 
 const sections = [
   {
-    heading: "Acceptance of terms",
+    heading: "Acceptance",
     body: [
-      "By accessing or using thedraftory.com (the 'Site'), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Site.",
-      "These terms apply to all visitors, users, and others who access or use the Site.",
+      "By using this site, you agree to these terms. If you do not agree, please do not use the site.",
     ],
   },
   {
-    heading: "About our services",
+    heading: "Services",
     body: [
-      "The Draftory provides content creation services for founders and executives, including but not limited to: ghostwritten LinkedIn posts, essays, newsletters, founder blogs, and long-form thought leadership content.",
-      "Use of this Site, including submitting our contact form, does not constitute a binding service agreement. An engagement begins only upon execution of a written contract between you and The Draftory.",
+      "The Draftory creates content for founders and executives. Submitting the contact form does not create a service obligation. An engagement begins only upon a written contract.",
     ],
   },
   {
     heading: "Intellectual property",
     body: [
-      "All content on this Site — including text, graphics, logos, and design — is the property of The Draftory and is protected under applicable Indian and international copyright and intellectual property laws. You may not reproduce, distribute, or create derivative works from Site content without our written permission.",
-      "Content we create for clients as part of a paid engagement is governed by the terms of the applicable client contract, which typically assigns full ownership to the client upon receipt of payment.",
+      "All site content is owned by The Draftory and protected under Indian and international copyright law. Work created for clients under a paid engagement is governed by the applicable client contract.",
     ],
   },
   {
-    heading: "User conduct",
+    heading: "Conduct",
     body: [
-      "You agree not to use the Site to: submit false or misleading information; attempt to gain unauthorised access to any part of the Site or its underlying systems; engage in any conduct that restricts or inhibits anyone's use or enjoyment of the Site; or violate any applicable law or regulation.",
-      "We reserve the right to refuse service, terminate access, or remove content at our sole discretion.",
+      "You agree not to misuse the site, submit false information, or violate any applicable law. We reserve the right to refuse service at our discretion.",
     ],
   },
   {
-    heading: "Contact form submissions",
+    heading: "Disclaimers",
     body: [
-      "Information submitted via our contact form is used to evaluate whether we can work together. Submitting the form does not guarantee a response, create a service obligation, or establish a business relationship.",
-      "By submitting the form, you confirm that the information provided is accurate and that you have the authority to engage on behalf of any company you represent.",
+      "The site is provided as-is. We make no warranties about its accuracy, availability, or fitness for any purpose.",
     ],
   },
   {
-    heading: "Newsletter and communications",
+    heading: "Liability",
     body: [
-      "If you subscribe to our newsletter, you consent to receive occasional emails from The Draftory on topics related to founder content, writing, and brand presence. We send infrequently and only content we consider worth reading.",
-      "You can unsubscribe at any time via the link in any email, or by contacting us directly at navya@thedraftory.com.",
+      "To the extent permitted by Indian law, The Draftory is not liable for indirect or consequential damages. Our total liability shall not exceed amounts paid by you in the preceding six months.",
     ],
   },
   {
-    heading: "Third-party links",
+    heading: "Governing law",
     body: [
-      "The Site may contain links to third-party websites. These are provided for convenience only. We do not endorse, control, or take responsibility for the content or practices of any linked sites.",
+      "These terms are governed by Indian law. Disputes will first be addressed through good-faith negotiation. If unresolved, they will be referred to arbitration under the Arbitration and Conciliation Act, 1996, with the seat in New Delhi.",
     ],
   },
   {
-    heading: "Disclaimer of warranties",
+    heading: "Changes",
     body: [
-      "The Site is provided on an 'as is' and 'as available' basis without warranties of any kind, either express or implied. We do not warrant that the Site will be uninterrupted, error-free, or free of viruses or other harmful components.",
-      "We make no representations about the accuracy or completeness of any information on the Site.",
-    ],
-  },
-  {
-    heading: "Limitation of liability",
-    body: [
-      "To the fullest extent permitted by applicable Indian law, The Draftory shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, the Site.",
-      "Our total liability to you for any cause of action shall not exceed the amount paid by you to us, if any, in the six months preceding the event giving rise to the claim.",
-    ],
-  },
-  {
-    heading: "Indemnification",
-    body: [
-      "You agree to indemnify and hold harmless The Draftory and its team members from any claims, losses, damages, liabilities, and expenses (including legal fees) arising from your use of the Site or violation of these Terms.",
-    ],
-  },
-  {
-    heading: "Governing law and disputes",
-    body: [
-      "These Terms are governed by and construed in accordance with the laws of India. Any dispute arising out of or in connection with these Terms shall first be attempted to be resolved through good-faith negotiation between the parties.",
-      "If a dispute cannot be resolved amicably within 30 days, it shall be referred to binding arbitration in accordance with the Arbitration and Conciliation Act, 1996 (India). The seat of arbitration shall be New Delhi, India, and proceedings shall be conducted in English.",
-      "For matters not subject to arbitration, the courts at New Delhi, India shall have exclusive jurisdiction.",
-    ],
-  },
-  {
-    heading: "Changes to these terms",
-    body: [
-      "We reserve the right to update these Terms at any time. Continued use of the Site after changes are posted constitutes acceptance of the revised Terms. The effective date at the top of this page reflects when the Terms were last updated.",
+      "We may update these terms at any time. Continued use of the site constitutes acceptance.",
     ],
   },
   {
     heading: "Contact",
     body: [
-      "Questions about these Terms? Email us at navya@thedraftory.com. We're a small team and we respond to everything.",
+      "Questions? Email navya@thedraftory.com.",
     ],
   },
 ];
@@ -115,7 +81,6 @@ export default function TermsPage() {
 
       <div className="shell pb-28 pt-36 md:pb-40 md:pt-44">
         <div className="max-w-2xl">
-          <p className="eyebrow mb-6 text-white/45">Legal</p>
           <h1 className="display display-lg text-white">Terms of Service</h1>
           <p className="mt-6 text-base text-white/45">Effective date: June 26, 2025</p>
 

@@ -14,70 +14,43 @@ const sections = [
   {
     heading: "Who we are",
     body: [
-      "The Draftory is a content studio for founders and executives. We create ghostwritten content — LinkedIn posts, essays, newsletters, and long-form thought leadership — on behalf of our clients. Our website is located at thedraftory.com.",
-      "When we say 'we', 'us', or 'our', we mean The Draftory. When we say 'you', we mean any person visiting this site or submitting information through our contact form.",
+      "The Draftory is a content studio for founders and executives based in India. Our website is thedraftory.com.",
     ],
   },
   {
-    heading: "Information we collect",
+    heading: "What we collect",
     body: [
-      "We collect information you give us directly. When you fill out our contact form, we collect your name, email address, job title, company name, LinkedIn URL, company website, the category of your business, a description of your product, your company size, the type of work you're looking for, your content goals, how you heard about us, your country, and any referral details you choose to share.",
-      "We also collect standard usage data automatically — things like your IP address, browser type, pages visited, and time spent on each page. This is collected via analytics tools to help us understand how the site is used.",
+      "When you submit our contact form, we collect the details you provide: name, email, company, job title, and project information. We also collect basic usage data (pages visited, browser type) via analytics.",
     ],
   },
   {
-    heading: "How we use your information",
+    heading: "How we use it",
     body: [
-      "Contact form data is used solely to respond to your inquiry, understand your project needs, and determine whether we're a good fit to work together. We do not sell this information to third parties, ever.",
-      "If you opt in to our newsletter via the contact form or the newsletter signup, we'll occasionally send you founder-focused writing on content, presence, and trust. You can unsubscribe at any time.",
-      "Usage data helps us improve the site — understanding which pages are read most and where people drop off.",
+      "Form data is used only to respond to your inquiry and assess fit. We do not sell your information. If you opted into our newsletter, we will send occasional founder-focused emails. You can unsubscribe any time.",
     ],
   },
   {
-    heading: "Who we share data with",
+    heading: "Third parties",
     body: [
-      "We use Formspree to process contact form submissions. Your form data is transmitted to Formspree's servers and forwarded to our inbox. You can read Formspree's privacy policy at formspree.io/legal/privacy-policy.",
-      "We may use analytics tools such as Google Analytics or Plausible to understand site traffic. These tools may set cookies or use fingerprinting to track page visits in aggregate.",
-      "We do not share your personal information with any other third parties unless required by law.",
-    ],
-  },
-  {
-    heading: "Data retention",
-    body: [
-      "We retain contact form submissions for as long as the business relationship is active or potentially active. If you ask us to delete your data, we will do so within 30 days.",
-      "Newsletter subscription data is retained until you unsubscribe.",
-    ],
-  },
-  {
-    heading: "Cookies",
-    body: [
-      "This site may use cookies for analytics purposes. We do not use cookies for advertising or cross-site tracking. You can disable cookies in your browser settings without affecting your ability to browse the site.",
+      "We use Formspree to process form submissions and may use analytics tools such as Google Analytics. We do not share your data with anyone else unless required by law.",
     ],
   },
   {
     heading: "Your rights",
     body: [
-      "You have the right to access, correct, or delete any personal information we hold about you. You may also object to or restrict how we process your data.",
-      "To exercise any of these rights, email us at navya@thedraftory.com. We will respond within 30 days.",
-      "This policy is governed by the Digital Personal Data Protection Act, 2023 (India). If you believe your data rights have been violated, you may raise a complaint with the Data Protection Board of India.",
+      "You can request access to, correction of, or deletion of your data at any time by emailing navya@thedraftory.com. We will respond within 30 days. This policy is governed by the Digital Personal Data Protection Act, 2023 (India).",
     ],
   },
   {
-    heading: "Children's privacy",
+    heading: "Changes",
     body: [
-      "Our services are not directed to anyone under the age of 18. We do not knowingly collect personal information from children. If you believe we have collected such information, please contact us immediately.",
-    ],
-  },
-  {
-    heading: "Changes to this policy",
-    body: [
-      "We may update this policy from time to time. When we do, we'll update the effective date at the top of this page. We encourage you to review it periodically.",
+      "We may update this policy occasionally. The effective date above reflects the latest revision.",
     ],
   },
   {
     heading: "Contact",
     body: [
-      "Questions about this policy? Write to us at navya@thedraftory.com. We're a small team and we read everything.",
+      "Questions? Email navya@thedraftory.com.",
     ],
   },
 ];
@@ -96,7 +69,6 @@ export default function PrivacyPage() {
 
       <div className="shell pb-28 pt-36 md:pb-40 md:pt-44">
         <div className="max-w-2xl">
-          <p className="eyebrow mb-6 text-white/45">Legal</p>
           <h1 className="display display-lg text-white">Privacy Policy</h1>
           <p className="mt-6 text-base text-white/45">Effective date: June 26, 2025</p>
 

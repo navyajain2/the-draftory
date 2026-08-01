@@ -958,10 +958,10 @@ export const contactForm = {
     options: ["Google Search", "Referral", "Newsletter", "Social media", "Word of mouth", "Other"],
   },
   region: {
-    name: "region",
-    label: "What region are you based in?",
-    placeholder: "Select a region",
-    options: ["North America", "Latin America", "Europe", "Middle East & Africa", "Asia", "Australia & New Zealand", "Other / Not listed"],
+    name: "country",
+    label: "Which country are you based in?",
+    placeholder: "Select a country",
+    options: ["India", "United States", "United Kingdom", "Canada", "Australia", "Singapore", "UAE", "Germany", "France", "Netherlands", "Other"],
   },
   referral: {
     name: "referral",

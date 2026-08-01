@@ -13,7 +13,7 @@ export default function Manifesto() {
           <AnimatedHeading
             text={manifesto.highlight}
             delay={0.2}
-            className="display text-[clamp(2.2rem,6.2vw,4.6rem)] leading-[1.04] text-paper lg:order-2 lg:-mt-[0.22em]"
+            className="display display-lg text-paper lg:order-2 lg:-mt-[0.22em]"
           />
 
           {/* small intro — second on mobile/tablet, left column on desktop */}

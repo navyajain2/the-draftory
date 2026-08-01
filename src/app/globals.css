@@ -78,21 +78,21 @@ html.is-loading body {
 }
 
 .display-xl {
-  font-size: clamp(2.5rem, 7.5vw, 6.5rem);
+  font-size: clamp(2.5rem, 7.2vw, 12rem);
 }
 
 .display-lg {
-  font-size: clamp(2.2rem, 6.2vw, 4.6rem);
+  font-size: clamp(2.2rem, 5vw, 9rem);
   line-height: 1.04;
 }
 
 .display-md {
-  font-size: clamp(1.75rem, 4.4vw, 3rem);
+  font-size: clamp(1.75rem, 4.4vw, 6rem);
   line-height: 1.06;
 }
 
 .display-sm {
-  font-size: clamp(1.25rem, 2.8vw, 1.875rem);
+  font-size: clamp(1.25rem, 2.8vw, 3rem);
   line-height: 1.1;
   letter-spacing: -0.01em;
 }

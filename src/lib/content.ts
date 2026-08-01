@@ -29,7 +29,7 @@ export const manifesto = {
   eyebrow: "What we do",
   body: "We're a team of ghostwriters, strategists, and brand thinkers turning founders' raw ideas into the kind of presence that gets noticed, remembered, and trusted.",
   body2:
-    "From LinkedIn posts and founder blogs to newsletters and Substack essays, we help exceptional people articulate what they already know.",
+    "From LinkedIn posts and founder blogs to newsletters and Substack essays, we help brilliant people articulate what they already know.",
   highlight:
     "We bring great writing to\nexceptional founders.\n(We work with a few, on purpose).",
 };

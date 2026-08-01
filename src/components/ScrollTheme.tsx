@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useLayoutEffect } from "react";
+import { usePathname } from "next/navigation";
 
 // useLayoutEffect runs before the browser paints, so the background is corrected
 // before the first frame the user sees. Falls back to useEffect during SSR.
@@ -22,6 +23,8 @@ const THEMES: Record<string, { bg: string; fg: string }> = {
 };
 
 export default function ScrollTheme() {
+  const pathname = usePathname();
+
   useIsomorphicLayoutEffect(() => {
     const bgEl = document.getElementById("page-bg");
     const sections = Array.from(
@@ -90,9 +93,12 @@ export default function ScrollTheme() {
     );
     sections.forEach((s) => observer.observe(s));
 
-    update(); // apply immediately on mount
+    // Small delay so Next.js has time to finish rendering the new page's DOM
+    // before we re-query sections (0ms rAF is enough for same-tick updates).
+    const t = requestAnimationFrame(() => update());
 
     return () => {
+      cancelAnimationFrame(t);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("pageshow", resync);
       window.removeEventListener("load", resync);
@@ -100,7 +106,7 @@ export default function ScrollTheme() {
       observer.disconnect();
       if (raf) cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }

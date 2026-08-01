@@ -14,7 +14,7 @@ const sections = [
   {
     heading: "Who we are",
     body: [
-      "The Draftory is a content studio for founders and executives based in India. Our website is thedraftory.com.",
+      "The Draftory is a ghostwriting studio based in India. We work with founders and executives to create LinkedIn content, essays, newsletters, and long-form thought leadership. Our website is thedraftory.com.",
     ],
   },
   {

@@ -39,7 +39,7 @@ export default function Process() {
   const pad = (n: number) => String(n).padStart(2, "0");
 
   return (
-    <section id="process" data-theme="light" className="shell pt-28 md:pt-40">
+    <section id="process" data-theme="light" className="shell pt-16 md:pt-40">
       {/* header — full-width, like the principles section */}
       <div className="flex items-end justify-between gap-6">
         <AnimatedHeading

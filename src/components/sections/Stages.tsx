@@ -12,7 +12,7 @@ export default function Stages() {
   const [active, setActive] = useState<number | null>(null);
 
   return (
-    <section data-theme="light" className="shell py-28 md:py-40">
+    <section data-theme="light" className="shell py-16 md:py-40">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
         {stages.items.map((s, i) => {
           const isActive = active === i;
@@ -49,7 +49,7 @@ export default function Stages() {
                   opacity: { duration: 0.35 },
                 }}
                 style={{ transformOrigin: "100% 0%" }}
-                className="pointer-events-none absolute right-8 top-8 aspect-[4/5] w-[42%] overflow-hidden md:right-10 md:top-10 md:w-[27%]"
+                className="pointer-events-none absolute right-8 top-8 aspect-[4/5] w-[42%] overflow-hidden md:right-10 md:top-10 md:w-[27%] hidden md:block"
               >
                 <Image
                   src={s.img}

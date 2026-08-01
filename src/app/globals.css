@@ -78,7 +78,7 @@ html.is-loading body {
 }
 
 .display-xl {
-  font-size: clamp(2.75rem, 9.5vw, 8rem);
+  font-size: clamp(2.5rem, 7.5vw, 6.5rem);
 }
 
 .display-lg {

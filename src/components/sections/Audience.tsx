@@ -7,7 +7,7 @@ import Reveal from "@/components/anim/Reveal";
 export default function Audience() {
   return (
     <section id="audience" data-theme="dark" className="text-paper">
-      <div className="shell py-28 md:py-40">
+      <div className="shell py-16 md:py-40">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
           {/* left: headline + paragraph */}
           <div className="lg:sticky lg:top-28 lg:self-start">

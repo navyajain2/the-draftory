@@ -12,7 +12,7 @@ export default function Footer() {
       data-theme="dark"
       className="relative overflow-hidden bg-noir text-paper"
     >
-      <div className="shell pt-28 md:pt-40">
+      <div className="shell pt-16 md:pt-40">
         {/* Top band — newsletter signup (left) + link columns (right) */}
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1.25fr_1fr] lg:gap-24">
           <div className="max-w-xl">
@@ -71,12 +71,6 @@ export default function Footer() {
             <Link href="/terms" className="cursor-pointer transition-colors hover:text-paper">
               Terms of Service
             </Link>
-            <a
-              href={`mailto:${brand.email}`}
-              className="cursor-pointer transition-colors hover:text-paper"
-            >
-              {brand.email}
-            </a>
           </p>
         </div>
       </div>

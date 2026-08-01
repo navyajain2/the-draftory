@@ -10,7 +10,7 @@ import Reveal from "@/components/anim/Reveal";
 export default function Insights() {
   return (
     <section id="insights" data-theme="light">
-      <div className="shell py-28 md:py-40">
+      <div className="shell py-16 md:py-40">
         {/* header */}
         <div className="flex items-end justify-between gap-6">
           <AnimatedHeading

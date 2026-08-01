@@ -30,7 +30,7 @@ export default function FAQ() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <div className="shell py-28 md:py-40">
+      <div className="shell py-16 md:py-40">
         <AnimatedHeading text={faqs.title} className="display display-lg" />
 
         <div className="mt-14 md:mt-24 md:pl-[25%]">

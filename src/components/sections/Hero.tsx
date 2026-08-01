@@ -14,7 +14,7 @@ const lineVariants = {
 
 export default function Hero() {
   return (
-    <section id="top" data-theme="dark" data-nav="ink" className="relative min-h-[100svh] overflow-hidden">
+    <section id="top" data-theme="dark" data-nav="ink" data-hero className="relative min-h-[100svh] overflow-hidden">
       {/* full-bleed background video (sits above the shared page-bg layer) */}
       <div className="absolute inset-0 z-0">
         <video

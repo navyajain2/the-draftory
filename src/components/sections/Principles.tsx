@@ -11,7 +11,7 @@ export default function Principles() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section data-theme="light" className="shell py-28 md:py-40">
+    <section data-theme="light" className="shell py-16 md:py-40">
       <AnimatedHeading
         text={principles.title}
         className="display display-lg"

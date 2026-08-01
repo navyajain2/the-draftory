@@ -6,7 +6,7 @@ import Marquee from "@/components/anim/Marquee";
 
 export default function Gallery() {
   return (
-    <section data-theme="light" className="overflow-hidden py-28 md:py-40">
+    <section data-theme="light" className="overflow-hidden py-16 md:py-40">
       <Marquee speed={42}>
         {gallery.map((img, i) => (
           <div

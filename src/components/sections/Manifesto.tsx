@@ -7,7 +7,7 @@ import Reveal from "@/components/anim/Reveal";
 export default function Manifesto() {
   return (
     <section id="approach" data-theme="dark" className="text-paper">
-      <div className="shell py-28 md:py-40">
+      <div className="shell py-16 md:py-40">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.8fr_2.2fr] lg:gap-16">
           {/* huge statement — first on mobile/tablet, right column on desktop */}
           <AnimatedHeading

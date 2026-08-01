@@ -12,10 +12,12 @@ export default function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   // "dark" sections want light nav text; "light"/"amber" want ink.
-  const [theme, setTheme] = useState<"dark" | "light">("light");
+  const [theme, setTheme] = useState<"dark" | "light" | "amber">("light");
   // zypsy concept: expanded inline links on the hero; collapse to a "Menu"
   // button once the user scrolls past the top.
   const [scrolled, setScrolled] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
 
   useEffect(() => {
     const sections = Array.from(
@@ -28,16 +30,19 @@ export default function Nav() {
     // Re-pick the section crossing a thin line just under the header.
     const evaluate = () => {
       const probe = 40;
-      for (const el of sections) {
+      // Iterate in reverse DOM order so elements rendered on top (e.g. the
+      // footer behind FooterReveal) take priority over transformed sections
+      // whose bounding rects may still cover the probe point.
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = sections[i];
         const rect = el.getBoundingClientRect();
         if (rect.top <= probe && rect.bottom > probe) {
-          // `data-nav` lets a section force nav contrast independent of its
-          // page-background theme (e.g. the hero's light top area).
           const override = el.dataset.nav;
           if (override === "ink" || override === "paper") {
             setTheme(override === "ink" ? "light" : "dark");
           } else {
-            setTheme(el.dataset.theme === "dark" ? "dark" : "light");
+            const t = el.dataset.theme;
+            setTheme(t === "dark" ? "dark" : t === "amber" ? "amber" : "light");
           }
           return;
         }
@@ -71,21 +76,59 @@ export default function Nav() {
   }, []);
 
   useEffect(() => {
+    const hero = document.querySelector<HTMLElement>("[data-hero]");
+    if (!hero) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setPastHero(!entry.isIntersecting),
+      { threshold: 0 },
+    );
+    obs.observe(hero);
+    return () => obs.disconnect();
+  }, [pathname]);
+
+  useEffect(() => {
+    const footer = document.querySelector<HTMLElement>("footer[data-theme]");
+    if (!footer) return;
+    // Only treat footer as "active" once its top edge crosses the nav probe
+    // at y=40 — same line the section theme observer uses. This prevents the
+    // footer from stealing the theme while it's just peeking in from the bottom.
+    const obs = new IntersectionObserver(
+      ([entry]) => setFooterVisible(entry.isIntersecting),
+      { rootMargin: `-40px 0px ${40 - window.innerHeight}px 0px`, threshold: 0 },
+    );
+    obs.observe(footer);
+    return () => obs.disconnect();
+  }, [pathname]);
+
+  useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [open]);
 
-  const fg = open || theme === "dark" ? "text-paper" : "text-ink";
-  // On dark sections accent yellow is readable; on light/amber hero it blends
-  // into the background, so soften hover to a muted ink instead.
-  const hoverCls = theme === "dark" || open ? "hover:text-accent" : "hover:text-ink-soft";
+  // When the footer is visible anywhere in the viewport, treat nav as dark —
+  // the footer is always dark and the CTA probe (amber) would otherwise win.
+  const effectiveTheme = footerVisible ? "dark" : theme;
+  const fg = open || effectiveTheme === "dark" ? "text-paper" : "text-ink";
+  const hoverCls = effectiveTheme === "dark" || open ? "hover:text-accent" : "hover:text-ink-soft";
+  const scrimFrom =
+    effectiveTheme === "dark" ? "from-noir/60" :
+    effectiveTheme === "amber" ? "from-accent/50" :
+    "from-paper/60";
 
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50">
-        <div className="shell flex items-start justify-between py-5 md:py-6">
+        {/* Gradient scrim — only after scrolling past the hero */}
+        <div
+          className={cn(
+            "pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b to-transparent transition-all duration-500",
+            scrimFrom,
+            pastHero && effectiveTheme !== "dark" ? "opacity-100" : "opacity-0",
+          )}
+        />
+        <div className="shell relative flex items-start justify-between py-5 md:py-6">
           <Link
             href="/"
             className={cn(

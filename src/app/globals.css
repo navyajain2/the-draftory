@@ -136,9 +136,9 @@ html.is-loading body {
 /* Shared section gutter */
 .shell {
   width: 100%;
-  max-width: 96rem;
+  max-width: 180rem;
   margin-inline: auto;
-  padding-inline: clamp(1.25rem, 4vw, 4.5rem);
+  padding-inline: clamp(1.25rem, 4vw, 8rem);
 }
 
 /* Underline link with animated rule (zypsy style) */

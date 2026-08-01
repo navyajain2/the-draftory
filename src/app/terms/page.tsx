@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Wordmark from "@/components/ui/Wordmark";
+import BackButton from "@/components/ui/BackButton";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — The Draftory",
+  title: { absolute: "Terms of Service — The Draftory" },
   description:
     "The terms that govern your use of The Draftory website and services.",
   robots: { index: false },
@@ -27,7 +28,7 @@ const sections = [
   {
     heading: "Intellectual property",
     body: [
-      "All content on this Site — including text, graphics, logos, and design — is the property of The Draftory and is protected by applicable copyright and intellectual property laws. You may not reproduce, distribute, or create derivative works from Site content without our written permission.",
+      "All content on this Site — including text, graphics, logos, and design — is the property of The Draftory and is protected under applicable Indian and international copyright and intellectual property laws. You may not reproduce, distribute, or create derivative works from Site content without our written permission.",
       "Content we create for clients as part of a paid engagement is governed by the terms of the applicable client contract, which typically assigns full ownership to the client upon receipt of payment.",
     ],
   },
@@ -68,7 +69,7 @@ const sections = [
   {
     heading: "Limitation of liability",
     body: [
-      "To the fullest extent permitted by law, The Draftory shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, the Site.",
+      "To the fullest extent permitted by applicable Indian law, The Draftory shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, the Site.",
       "Our total liability to you for any cause of action shall not exceed the amount paid by you to us, if any, in the six months preceding the event giving rise to the claim.",
     ],
   },
@@ -79,9 +80,11 @@ const sections = [
     ],
   },
   {
-    heading: "Governing law",
+    heading: "Governing law and disputes",
     body: [
-      "These Terms are governed by and construed in accordance with applicable law. Any dispute arising from these Terms shall be resolved through good-faith negotiation first, and if unresolved, through binding arbitration.",
+      "These Terms are governed by and construed in accordance with the laws of India. Any dispute arising out of or in connection with these Terms shall first be attempted to be resolved through good-faith negotiation between the parties.",
+      "If a dispute cannot be resolved amicably within 30 days, it shall be referred to binding arbitration in accordance with the Arbitration and Conciliation Act, 1996 (India). The seat of arbitration shall be New Delhi, India, and proceedings shall be conducted in English.",
+      "For matters not subject to arbitration, the courts at New Delhi, India shall have exclusive jurisdiction.",
     ],
   },
   {
@@ -106,9 +109,7 @@ export default function TermsPage() {
           <Link href="/" className="text-[1.875rem] text-white">
             <Wordmark />
           </Link>
-          <Link href="/" className="rule-link cursor-pointer text-lg tracking-[-0.01em] text-white">
-            Back
-          </Link>
+          <BackButton />
         </div>
       </header>
 

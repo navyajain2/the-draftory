@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Wordmark from "@/components/ui/Wordmark";
+import BackButton from "@/components/ui/BackButton";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — The Draftory",
+  title: { absolute: "Privacy Policy — The Draftory" },
   description:
     "How The Draftory collects, uses, and protects your personal information.",
   robots: { index: false },
@@ -20,7 +21,7 @@ const sections = [
   {
     heading: "Information we collect",
     body: [
-      "We collect information you give us directly. When you fill out our contact form, we collect your name, email address, job title, company name, LinkedIn URL, company website, the category of your business, a description of your product, your company size, the type of work you're looking for, your content goals, how you heard about us, your region, and any referral details you choose to share.",
+      "We collect information you give us directly. When you fill out our contact form, we collect your name, email address, job title, company name, LinkedIn URL, company website, the category of your business, a description of your product, your company size, the type of work you're looking for, your content goals, how you heard about us, your country, and any referral details you choose to share.",
       "We also collect standard usage data automatically — things like your IP address, browser type, pages visited, and time spent on each page. This is collected via analytics tools to help us understand how the site is used.",
     ],
   },
@@ -58,7 +59,7 @@ const sections = [
     body: [
       "You have the right to access, correct, or delete any personal information we hold about you. You may also object to or restrict how we process your data.",
       "To exercise any of these rights, email us at navya@thedraftory.com. We will respond within 30 days.",
-      "If you are in the European Economic Area, you have additional rights under GDPR, including the right to lodge a complaint with your local supervisory authority.",
+      "This policy is governed by the Digital Personal Data Protection Act, 2023 (India). If you believe your data rights have been violated, you may raise a complaint with the Data Protection Board of India.",
     ],
   },
   {
@@ -89,9 +90,7 @@ export default function PrivacyPage() {
           <Link href="/" className="text-[1.875rem] text-white">
             <Wordmark />
           </Link>
-          <Link href="/" className="rule-link cursor-pointer text-lg tracking-[-0.01em] text-white">
-            Back
-          </Link>
+          <BackButton />
         </div>
       </header>
 
